@@ -1,24 +1,36 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
+  const [movieList, setMovieList] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = 'https://api.tvmaze.com/shows';
+
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        console.log(result);
+        setMovieList(result);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ul className="App">
+      {movieList.map((movie) => (
+        <li key={movie.id}>
+          <span>{movie.name}</span>
+          <img src={movie.image.medium} alt={'s'} />
+          <span>{movie.ended}</span>
+          <span>{movie.genres}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 
