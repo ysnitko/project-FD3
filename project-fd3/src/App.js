@@ -1,37 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './App.css';
+import Header from './components/Header/Header';
+import LeftAside from './components/LeftAside/LeftAside';
+import MoviesList from './components/MoviesList/MoviesList';
 
-function App() {
-  const [movieList, setMovieList] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const url = 'https://api.tvmaze.com/shows';
-
-      try {
-        const response = await fetch(url);
-        const result = await response.json();
-        console.log(result);
-        setMovieList(result);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
+const App = () => {
   return (
-    <ul className="App">
-      {movieList.map((movie) => (
-        <li key={movie.id}>
-          <span>{movie.name}</span>
-          <img src={movie.image.medium} alt={'s'} />
-          <span>{movie.ended}</span>
-          <span>{movie.genres}</span>
-        </li>
-      ))}
-    </ul>
+    <div className="container">
+      <Header />
+      <div className="main-block">
+        <LeftAside />
+        <MoviesList />
+      </div>
+    </div>
   );
-}
+};
 
 export default App;

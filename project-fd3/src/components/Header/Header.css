@@ -1,0 +1,57 @@
+@import url(../../index.css);
+.main-header {
+    display: flex;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    color: var(--white);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    font-size: var(--fs-3);
+}
+
+.search{
+    width: 50%;
+}
+
+.langusges-select {
+    display: flex;
+    gap: 5px
+}
+
+.sign-lang-section {
+    display: flex;
+    gap: 20px;
+}
+
+select {
+    background: none;
+    color: var(--white);
+    border: none;
+    outline:none;
+}
+
+.sign-btn {
+    padding: 10px 20px;
+    color: var(--white);
+    background: none;
+    border-radius: 20px;
+    border: 2px solid var(--citrine);
+}
+
+.sign-btn:hover {
+    background-color: var(--citrine);
+    color: var(--rich-black-fogra-29);
+}
+
+.search {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline:none;
+}
