@@ -18,7 +18,7 @@
   --fs-1: 36px;
   --fs-2: 32px;
   --fs-3: 30px;
-  --fs-4: 24px;
+  --fs-4: 26px;
   --fs-5: 20px;
   --fs-6: 18px;
   --fs-7: 16px;
@@ -27,6 +27,7 @@
   --fs-10: 13px;
   --fs-11: 12px;
   --fs-12: 11px;
+  --fs-13: 62px;
   --fw-500: 500;
   --fw-700: 700;
   --transition-1: 0.15s ease;
@@ -35,8 +36,12 @@
 }
 
 body {
+  height: 100vh;
+  /* overflow: hidden; */
   background: linear-gradient(180deg, #3E3E3E 0%, #070707 100%);
   font-family: var(--ff-poppins);
+ 
+
 }
 
 
