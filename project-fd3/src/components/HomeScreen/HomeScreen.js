@@ -1,8 +1,8 @@
-import React from 'react';
-import './HomeScreen.css';
-import calendarIcons from '../../helpers/img/calendar-icon.svg';
+import React from "react";
+import "./HomeScreen.css";
+import calendarIcons from "../../helpers/img/calendar-icon.svg";
 
-const HomeScreen = () => {
+const HomeScreen = ({ handleClickShow }) => {
   return (
     <div className="home-screen">
       <div className="title">
@@ -21,8 +21,8 @@ const HomeScreen = () => {
           <span>2023</span>
         </div>
       </div>
-      <button className="play-now" type="">
-        PLAY NOW
+      <button className="play-now" type="" onClick={handleClickShow}>
+        SHOW NOW
       </button>
     </div>
   );

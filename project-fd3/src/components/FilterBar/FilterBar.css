@@ -1,0 +1,54 @@
+@import url(../../index.css);
+
+.filter-block {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.block-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 22px;
+}
+
+.online-streaming {
+  font-size: var(--fs-6);
+  color: var(--citrine);
+}
+
+.upcoming-movies {
+  font-size: var(--fs-1);
+  color: var(--white);
+}
+
+.category-select > span,
+.sort-select > span {
+  font-size: var(--fs-9);
+  color: var(--white);
+}
+
+.category-select select,
+.sort-select select {
+  padding-left: 10px;
+  background-color: transparent;
+  font-size: var(--fs-9);
+  color: var(--citrine);
+}
+
+.category-select,
+.sort-select {
+  padding: 5px 10px;
+  background-color: var(--gunmetal-1);
+  border-radius: 20px;
+}
+
+option {
+  background-color: transparent;
+}

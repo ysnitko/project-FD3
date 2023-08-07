@@ -1,7 +1,7 @@
-import React from 'react';
-import './Header.css';
-import logoSvg from '../../helpers/img/logo.svg';
-import langSvg from '../../helpers/img/lang.svg';
+import React from "react";
+import "./Header.css";
+import logoSvg from "../../helpers/img/logo.svg";
+import langSvg from "../../helpers/img/lang.svg";
 
 const Header = () => {
   return (
@@ -10,13 +10,16 @@ const Header = () => {
         <img src={logoSvg} alt="logo" />
         <span>Filmagnet</span>
       </div>
-      <input
-        className="search"
-        type="search"
-        name=""
-        defaultValue=""
-        placeholder="search..."
-      />
+      <form action="">
+        <input
+          className="search"
+          type="search"
+          name=""
+          defaultValue=""
+          placeholder="search..."
+        />
+      </form>
+
       <div className="sign-lang-section">
         <div className="langusges-select">
           <img src={langSvg} alt="languages" />

@@ -14,7 +14,7 @@
   --white: hsl(0, 100%, 100%);
   --black: hsl(0, 0%, 0%);
   --jet: hsl(0, 0%, 20%);
-  --ff-poppins: 'Poppins', sans-serif;
+  --ff-poppins: "Poppins", sans-serif;
   --fs-1: 36px;
   --fs-2: 32px;
   --fs-3: 30px;
@@ -37,11 +37,7 @@
 
 body {
   height: 100vh;
-  /* overflow: hidden; */
-  background: linear-gradient(180deg, #3E3E3E 0%, #070707 100%);
+  background: linear-gradient(180deg, #3e3e3e 0%, #070707 100%);
+  overflow: hidden;
   font-family: var(--ff-poppins);
- 
-
 }
-
-

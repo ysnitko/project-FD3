@@ -1,10 +1,14 @@
-import React from 'react';
-import './LeftAside.css';
+import React from "react";
+import "./LeftAside.css";
 
-const LeftAside = () => {
+const LeftAside = ({ handleClickHome }) => {
   return (
     <div className="left-navigation">
-      <button className="home-btn" type="button"></button>
+      <button
+        className="home-btn"
+        type="button"
+        onClick={handleClickHome}
+      ></button>
       <button className="favorites-btn" type="button"></button>
     </div>
   );

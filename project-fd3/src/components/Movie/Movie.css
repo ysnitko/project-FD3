@@ -1,0 +1,54 @@
+@import url(../../index.css);
+
+.select {
+  color: var(--citrine);
+}
+
+.movie:hover .movie-cover {
+  scale: 1.02;
+  transition: 0.3s;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.movie:hover {
+  cursor: pointer;
+}
+
+.movie-title,
+.movie-duration-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-9);
+  color: var(--white);
+}
+
+.movie-prop {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.movie-duration-rating > span {
+  padding-inline: 2px;
+  border: 1px solid var(--white);
+}
+
+.movie-duration,
+.movie-rating {
+  display: flex;
+  gap: 2px;
+  font-size: var(--fs-10);
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie-cover {
+  opacity: 0.8;
+  aspect-ratio: 3/2;
+}
