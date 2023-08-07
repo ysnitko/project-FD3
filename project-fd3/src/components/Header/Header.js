@@ -1,7 +1,7 @@
-import React from "react";
-import "./Header.css";
-import logoSvg from "../../helpers/img/logo.svg";
-import langSvg from "../../helpers/img/lang.svg";
+import React from 'react';
+import './Header.css';
+import logoSvg from '../../helpers/img/logo.svg';
+import langSvg from '../../helpers/img/lang.svg';
 
 const Header = () => {
   return (

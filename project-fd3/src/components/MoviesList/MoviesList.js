@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Movie from "../Movie/Movie";
-import FilterBar from "../FilterBar/FilterBar";
-import "./MoviesList.css";
+import React, { useEffect, useState } from 'react';
+import Movie from '../Movie/Movie';
+import FilterBar from '../FilterBar/FilterBar';
+import './MoviesList.css';
 
 const MoviesList = () => {
   const [movieList, setMovieList] = useState([]);
   const [loadedMovies, setLoadedMovies] = useState([]);
   const [showLoadMore, setShowLoadMore] = useState(true);
-  console.log("render");
+  console.log('render');
   useEffect(() => {
     const fetchData = async () => {
-      const url = "https://api.tvmaze.com/shows";
+      const url = 'https://api.tvmaze.com/shows';
       const response = await fetch(url);
       const result = await response.json();
       const initialMovies = result.slice(0, 15);
