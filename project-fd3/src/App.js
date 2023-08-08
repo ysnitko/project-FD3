@@ -6,7 +6,7 @@ import Home from './components/Home/Home';
 import MoviesList from './components/MoviesList/MoviesList';
 
 const App = () => {
-  const [showHomeScreen, setShowHomeScreen] = useState(true);
+  const [showHomeScreen, setShowHomeScreen] = useState(false);
   const [showLoadMore, setShowLoadMore] = useState(true);
 
   const handleClickShow = () => {

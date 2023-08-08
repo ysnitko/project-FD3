@@ -1,7 +1,40 @@
-import React from "react";
-import "./FilterBar.css";
+import React from 'react';
+import './FilterBar.css';
 
-const FilterBar = () => {
+const FilterBar = ({ movieList, setStartList, startList, setMovieList }) => {
+  const handleSortByTitle = (event) => {
+    const sortedList = [...movieList];
+    if (event.target.value === 'by-title') {
+      sortedList.sort((a, b) => {
+        return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
+      });
+    }
+
+    if (event.target.value === 'by-title-reverse') {
+      sortedList.sort((a, b) => {
+        return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
+      });
+    }
+
+    if (event.target.value === 'by-rating-start') {
+      sortedList.sort((a, b) => {
+        return a.rating.average > b.rating.average ? 1 : -1;
+      });
+    }
+
+    if (event.target.value === 'by-rating-end') {
+      sortedList.sort((a, b) => {
+        return a.rating.average > b.rating.average ? -1 : 1;
+      });
+    }
+    console.log(sortedList);
+    setMovieList(sortedList);
+    setStartList(sortedList.slice(0, 15));
+    // if (event.target.value === 'by-title-reverse') {
+    //   sortedList.sort((a, b) => b.name.localeCompare(a.name));
+    // }
+  };
+
   return (
     <div className="filter-block">
       <div className="block-title">
@@ -29,11 +62,11 @@ const FilterBar = () => {
         </div>
         <div className="sort-select">
           <span>sort by:</span>
-          <select>
+          <select onChange={handleSortByTitle}>
             <option value="by-title">title A-Z</option>
-            <option value="by-title">title Z-A</option>
-            <option value="by-status">Ended</option>
-            <option value="Sp">Running</option>
+            <option value="by-title-reverse">title Z-A</option>
+            <option value="by-rating-start">Rating 0-9</option>
+            <option value="by-rating-end">Rating 9-0</option>
           </select>
         </div>
       </div>

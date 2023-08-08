@@ -33,7 +33,12 @@ const MoviesList = ({ showLoadMore, setShowLoadMore }) => {
 
   return (
     <div className="movies-container">
-      <FilterBar />
+      <FilterBar
+        movieList={movieList}
+        setStartList={setStartList}
+        startList={startList}
+        setMovieList={setMovieList}
+      />
       <ul className="movies-list">
         {startList.map((movie) => (
           <Movie

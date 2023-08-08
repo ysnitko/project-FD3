@@ -30,4 +30,4 @@ const Movie = ({ imageCover, name, status, runtime, rating }) => {
   );
 };
 
-export default Movie;
+export default React.memo(Movie);

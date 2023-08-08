@@ -6,9 +6,9 @@
   padding-left: 45px;
   flex-direction: column;
   justify-content: center;
-  /* height: 100vh; */
-  background: url(../../helpers/img/background-mando.jpg) no-repeat center;
-  opacity: 0.7;
+  height: 100vh;
+  background: url(../../helpers/img/the-mandalorian2.jpg) no-repeat center;
+  opacity: 0.6;
   background-size: cover;
 }
 
@@ -81,5 +81,11 @@
 .date-realese {
   display: flex;
   gap: 4px;
-  align-content: center;
+  align-items: center;
+}
+
+.date-realese > span {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: var(--fs-16);
 }
