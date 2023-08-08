@@ -3,11 +3,12 @@ import Movie from '../Movie/Movie';
 import FilterBar from '../FilterBar/FilterBar';
 import './MoviesList.css';
 
-const MoviesList = () => {
-  const [movieList, setMovieList] = useState([]);
-  const [loadedMovies, setLoadedMovies] = useState([]);
-  const [showLoadMore, setShowLoadMore] = useState(true);
+const MoviesList = ({ showLoadMore, setShowLoadMore }) => {
   console.log('render');
+  const [startList, setStartList] = useState([]);
+  const [movieList, setMovieList] = useState([]);
+  const [shownMovies, setShownMovies] = useState(15);
+
   useEffect(() => {
     const fetchData = async () => {
       const url = 'https://api.tvmaze.com/shows';
@@ -15,29 +16,26 @@ const MoviesList = () => {
       const result = await response.json();
       const initialMovies = result.slice(0, 15);
       setMovieList(result);
-      setLoadedMovies(initialMovies);
+      setStartList(initialMovies);
     };
     fetchData();
   }, []);
 
   const handleClickMore = () => {
-    const newLoadedMovies = [...loadedMovies];
-    const remainingMovies = movieList.slice(newLoadedMovies.length);
-    const nextMovies = remainingMovies.slice(0, 15);
+    const nextMovies = [...movieList].slice(shownMovies, shownMovies + 15);
+    setStartList((prevMovies) => [...prevMovies, ...nextMovies]);
+    setShownMovies((prevCount) => prevCount + 15);
 
-    newLoadedMovies.push(...nextMovies);
-    if (newLoadedMovies.length >= movieList.length) {
+    if (startList.length >= movieList.length) {
       setShowLoadMore(false);
     }
-    setLoadedMovies(newLoadedMovies);
   };
 
-  console.log(loadedMovies);
   return (
     <div className="movies-container">
       <FilterBar />
       <ul className="movies-list">
-        {loadedMovies.map((movie) => (
+        {startList.map((movie) => (
           <Movie
             key={movie.id}
             imageCover={movie.image.medium}

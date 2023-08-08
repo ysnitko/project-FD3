@@ -1,7 +1,7 @@
 @import url(../../index.css);
 .movies-list {
   display: grid;
-  height: 90%;
+  height: 100%;
   grid-template-columns: repeat(auto-fill, 210px);
   justify-content: space-between;
   gap: 20px;
@@ -14,7 +14,8 @@
 
 .movies-container {
   width: 100%;
-  height: 95%;
+  height: 94%;
+  position: relative;
   padding: 20px;
   padding-bottom: 30px;
   margin-bottom: 10px;
@@ -23,6 +24,9 @@
 }
 
 .loadMoreMovies {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
   max-width: 120px;
   margin: 0 auto;
   color: var(--citrine);

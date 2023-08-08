@@ -1,8 +1,8 @@
-import React from "react";
-import "./HomeScreen.css";
-import calendarIcons from "../../helpers/img/calendar-icon.svg";
+import React from 'react';
+import './Home.css';
+import calendarIcons from '../../helpers/img/calendar-icon.svg';
 
-const HomeScreen = ({ handleClickShow }) => {
+const Home = ({ handleClickShow }) => {
   return (
     <div className="home-screen">
       <div className="title">
@@ -28,4 +28,4 @@ const HomeScreen = ({ handleClickShow }) => {
   );
 };
 
-export default HomeScreen;
+export default Home;
