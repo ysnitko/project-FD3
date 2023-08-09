@@ -27,6 +27,7 @@
   --fs-10: 13px;
   --fs-11: 12px;
   --fs-12: 11px;
+  --fs-14: 10px;
   --fs-13: 62px;
   --fw-500: 500;
   --fw-700: 700;
@@ -40,4 +41,8 @@ body {
   background: linear-gradient(180deg, #3e3e3e 0%, #070707 100%);
   overflow: hidden;
   font-family: var(--ff-poppins);
+}
+
+.active {
+  color: var(--citrine);
 }

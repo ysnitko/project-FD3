@@ -1,25 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import Movie from '../Movie/Movie';
-import FilterBar from '../FilterBar/FilterBar';
-import './MoviesList.css';
+import React, { useEffect, useState } from "react";
+import Movie from "../Movie/Movie";
+import FilterBar from "../FilterBar/FilterBar";
+import "./MoviesList.css";
+// import About from "../About/About";
 
-const MoviesList = ({ showLoadMore, setShowLoadMore }) => {
-  console.log('render');
+const MoviesList = ({
+  showLoadMore,
+  setShowLoadMore,
+  transferMovieList,
+  saveList,
+}) => {
   const [startList, setStartList] = useState([]);
   const [movieList, setMovieList] = useState([]);
   const [shownMovies, setShownMovies] = useState(15);
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = 'https://api.tvmaze.com/shows';
+      const url = "https://api.tvmaze.com/shows";
       const response = await fetch(url);
       const result = await response.json();
       const initialMovies = result.slice(0, 15);
       setMovieList(result);
+      console.log(result);
       setStartList(initialMovies);
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    transferMovieList(startList);
+  }, [transferMovieList, startList]);
 
   const handleClickMore = () => {
     const nextMovies = [...movieList].slice(shownMovies, shownMovies + 15);
@@ -48,6 +58,7 @@ const MoviesList = ({ showLoadMore, setShowLoadMore }) => {
             status={movie.status}
             runtime={movie.runtime}
             rating={movie.rating.average}
+            category={movie.genres}
           />
         ))}
       </ul>
@@ -56,6 +67,7 @@ const MoviesList = ({ showLoadMore, setShowLoadMore }) => {
           Load More
         </button>
       )}
+      {/* <About /> */}
     </div>
   );
 };

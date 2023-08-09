@@ -1,17 +1,23 @@
-import React from 'react';
-import './Movie.css';
-import ratingStar from '../../helpers/img/rating.svg';
-import movieDuration from '../../helpers/img/watch-time.svg';
+import React from "react";
+import "./Movie.css";
+import ratingStar from "../../helpers/img/rating.svg";
+import movieDuration from "../../helpers/img/watch-time.svg";
 
-const Movie = ({ imageCover, name, status, runtime, rating }) => {
+const Movie = ({ imageCover, name, status, runtime, rating, category }) => {
+  console.log("render");
+  let editCategory = category.map((item, index) =>
+    index === category.length - 1 ? item : item + ", "
+  );
+
   return (
     <li className="movie">
-      <img className="movie-cover" src={imageCover} alt={'movie-cover'} />
+      <img className="movie-cover" src={imageCover} alt={"movie-cover"} />
       <div className="movie-info">
         <div className="movie-title">
           <span>{name}</span>
           <span className="select">{status}</span>
         </div>
+        <span className="category">{editCategory}</span>
         <div className="movie-duration-rating">
           <span>HD</span>
           <div className="movie-prop">

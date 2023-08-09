@@ -1,9 +1,19 @@
-import React from 'react';
-import './Header.css';
-import logoSvg from '../../helpers/img/logo.svg';
-import langSvg from '../../helpers/img/lang.svg';
+import React, { useState } from "react";
+import "./Header.css";
+import logoSvg from "../../helpers/img/logo.svg";
+import langSvg from "../../helpers/img/lang.svg";
 
-const Header = () => {
+const Header = ({ saveList, setSaveList }) => {
+  const [searchValue, setSearchValue] = useState("");
+
+  const searchMovies = (event) => {
+    setSearchValue(event.target.value);
+    const filtered = saveList.filter((movie) =>
+      movie.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
+    );
+    setSaveList(filtered);
+  };
+
   return (
     <div className="main-header">
       <div className="logo">
@@ -15,8 +25,9 @@ const Header = () => {
           className="search"
           type="search"
           name=""
-          defaultValue=""
+          value={searchValue}
           placeholder="search..."
+          onChange={searchMovies}
         />
       </form>
 

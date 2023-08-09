@@ -1,0 +1,79 @@
+@import url(../../index.css);
+
+.about-container {
+  display: flex;
+  height: 90%;
+  gap: 10px;
+  padding: 20px;
+}
+
+.movie-information {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favorites-block {
+  display: flex;
+  max-width: 50%;
+  padding: 35px 30px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.share {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.share > button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: url(../../helpers/img/share.svg) no-repeat center;
+}
+
+.rating-movie {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--white);
+}
+
+.rating-movie span {
+  font-size: var(--fs-5);
+}
+
+.rating-star {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.new-episode {
+  font-size: var(--fs-3);
+}
+
+.show-name {
+  color: var(--white);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
+}
+
+.add-favorites-btn {
+  padding: 8px 20px;
+  color: var(--white);
+  background: none;
+  border-radius: 20px;
+  border: 2px solid var(--citrine);
+}
+
+.movie-summary {
+  color: var(--white);
+}

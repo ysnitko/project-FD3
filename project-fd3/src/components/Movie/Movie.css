@@ -24,6 +24,11 @@
   color: var(--white);
 }
 
+.category {
+  font-size: var(--fs-14);
+  color: var(--white);
+}
+
 .movie-prop {
   display: flex;
   justify-content: space-between;

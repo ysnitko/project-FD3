@@ -12,6 +12,7 @@
 .logo {
   display: flex;
   align-items: center;
+
   gap: 4px;
   font-size: var(--fs-3);
 }
@@ -34,7 +35,7 @@ select {
 }
 
 .sign-btn {
-  padding: 10px 20px;
+  padding: 8px 20px;
   color: var(--white);
   background: none;
   border-radius: 20px;
