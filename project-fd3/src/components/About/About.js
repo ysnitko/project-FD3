@@ -1,29 +1,34 @@
-import React, { useEffect, useState } from "react";
-import calendarIcons from "../../helpers/img/calendar-icon.svg";
-import Star_favotites_block from "../../helpers/img/Star_favotites_block.svg";
-import "./About.css";
+import React, { useEffect, useState } from 'react';
+import calendarIcons from '../../helpers/img/calendar-icon.svg';
+import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
+import { useParams } from 'react-router-dom';
+import './About.css';
 
 const About = () => {
   const [movie, setMovie] = useState([]);
-
+  let { id } = useParams();
+  console.log(id);
   useEffect(() => {
     const fetchData = async () => {
-      const url = `https://api.tvmaze.com/shows/${1}`;
-      const response = await fetch(url);
+      const url = `https://api.tvmaze.com/shows/${id}`;
+      const response = await fetch(url, { mode: 'no-cors' });
       const result = await response.json();
       setMovie(result);
-      console.log(result);
     };
     fetchData();
-  }, []);
+  }, [id]);
 
-  let categoryMovie = movie.genres.map((item, index) =>
-    index === movie.genres.length - 1 ? item : item + ", "
+  let categoryMovie = movie.genres?.map((item, index) =>
+    index === movie.genres.length - 1 ? item : item + ', '
   );
 
   return (
     <div className="about-container">
-      <img className="show-cover" src={movie.image.original} alt="show-cover" />
+      <img
+        className="show-cover"
+        src={movie.image?.original}
+        alt="show-cover"
+      />
       <div className="movie-information">
         <span className="new-episode active"> NEW EPISODES </span>
         <span className="show-name"> {movie.name},</span>
@@ -33,8 +38,8 @@ const About = () => {
           <span className="category-movie">{categoryMovie}</span>
           <div className="date-realese">
             <img src={calendarIcons} alt="calendar" />
-            <span>{movie.schedule.days}</span>
-            <span>{movie.schedule.time}</span>
+            <span>{movie.schedule?.days}</span>
+            <span>{movie.schedule?.time}</span>
           </div>
         </div>
         <div className="favorites-block">
@@ -46,7 +51,7 @@ const About = () => {
             <span>Rate The Show</span>
             <div className="rating-star">
               <img src={Star_favotites_block} alt="star" />
-              <span>{movie.rating.average}</span>
+              <span>{movie.rating?.average}</span>
             </div>
           </div>
           <button className="add-favorites-btn">ADD TO FAVORITES</button>

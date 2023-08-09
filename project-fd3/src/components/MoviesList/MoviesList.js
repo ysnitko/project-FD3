@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Movie from "../Movie/Movie";
-import FilterBar from "../FilterBar/FilterBar";
-import "./MoviesList.css";
-// import About from "../About/About";
+import React, { useEffect, useState } from 'react';
+import Movie from '../Movie/Movie';
+import FilterBar from '../FilterBar/FilterBar';
+import './MoviesList.css';
+import { Link } from 'react-router-dom';
 
 const MoviesList = ({
   showLoadMore,
@@ -16,20 +16,20 @@ const MoviesList = ({
 
   useEffect(() => {
     const fetchData = async () => {
-      const url = "https://api.tvmaze.com/shows";
+      const url = 'https://api.tvmaze.com/shows';
       const response = await fetch(url);
       const result = await response.json();
       const initialMovies = result.slice(0, 15);
       setMovieList(result);
-      console.log(result);
+
       setStartList(initialMovies);
     };
     fetchData();
   }, []);
 
-  useEffect(() => {
-    transferMovieList(startList);
-  }, [transferMovieList, startList]);
+  // useEffect(() => {
+  //   transferMovieList(startList);
+  // }, [transferMovieList, startList]);
 
   const handleClickMore = () => {
     const nextMovies = [...movieList].slice(shownMovies, shownMovies + 15);
@@ -51,15 +51,20 @@ const MoviesList = ({
       />
       <ul className="movies-list">
         {startList.map((movie) => (
-          <Movie
+          <Link
+            className="movie-link"
             key={movie.id}
-            imageCover={movie.image.medium}
-            name={movie.name}
-            status={movie.status}
-            runtime={movie.runtime}
-            rating={movie.rating.average}
-            category={movie.genres}
-          />
+            to={`/movies/about/${movie.id}`}
+          >
+            <Movie
+              imageCover={movie.image.medium}
+              name={movie.name}
+              status={movie.status}
+              runtime={movie.runtime}
+              rating={movie.rating.average}
+              category={movie.genres}
+            />
+          </Link>
         ))}
       </ul>
       {showLoadMore && (

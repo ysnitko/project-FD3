@@ -1,15 +1,11 @@
-import React, { useState } from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
-import LeftAside from "./components/LeftAside/LeftAside";
-import Home from "./components/Home/Home";
-import MoviesList from "./components/MoviesList/MoviesList";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Linlk,
-} from "react-router-dom";
+import React, { useState } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import LeftAside from './components/LeftAside/LeftAside';
+import Home from './components/Home/Home';
+import MoviesList from './components/MoviesList/MoviesList';
+import About from './components/About/About';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 const App = () => {
   const [showHomeScreen, setShowHomeScreen] = useState(false);
@@ -21,7 +17,7 @@ const App = () => {
   };
 
   const handleClickShow = () => {
-    setShowHomeScreen(false);
+    setShowHomeScreen(true);
     setShowLoadMore(true);
   };
 
@@ -33,17 +29,36 @@ const App = () => {
     <div className="container">
       <Header startList={startList} transferMovieList={transferMovieList} />
       <div className="main-block">
-        <LeftAside handleClickHome={handleClickHome} />
-        {showHomeScreen ? (
-          <Home handleClickShow={handleClickShow} />
-        ) : (
-          <MoviesList
-            startList={startList}
-            transferMovieList={transferMovieList}
-            showLoadMore={showLoadMore}
-            setShowLoadMore={setShowLoadMore}
+        <LeftAside />
+        <Routes>
+          <Route
+            exact
+            path="/"
+            element={
+              showHomeScreen ? (
+                <Navigate to="/movies" />
+              ) : (
+                <Home
+                  handleClickHome={handleClickHome}
+                  handleClickShow={handleClickShow}
+                />
+              )
+            }
           />
-        )}
+          <Route
+            exact
+            path="/movies"
+            element={
+              <MoviesList
+                startList={startList}
+                transferMovieList={transferMovieList}
+                showLoadMore={showLoadMore}
+                setShowLoadMore={setShowLoadMore}
+              />
+            }
+          />
+          <Route path="/movies/about/:id" element={<About />} />
+        </Routes>
       </div>
     </div>
   );
