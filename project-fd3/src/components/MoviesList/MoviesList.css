@@ -8,25 +8,22 @@
   grid-row-gap: 40px;
   padding-inline: 0 20px;
   list-style-type: none;
-  overflow: hidden;
   overflow-y: scroll;
+  scrollbar-color: var(--citrine);
 }
 
 .movies-container {
   width: 100%;
-  height: 94%;
-  position: relative;
-  padding: 0 20px;
+  padding: 0 10px 0 20px;
   padding-bottom: 30px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
 }
 
-.loadMoreMovies {
-  position: fixed;
-  left: 50%;
-  bottom: 0;
+.loadMoreMovies-btn {
+  display: block;
   max-width: 120px;
   margin: 0 auto;
   color: var(--citrine);
@@ -36,4 +33,11 @@
 
 .movie-link {
   text-decoration: none;
+}
+
+.loadMoreMovies {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #070707;
 }

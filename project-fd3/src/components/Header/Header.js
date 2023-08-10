@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Header.css";
 import logoSvg from "../../helpers/img/logo.svg";
 import langSvg from "../../helpers/img/lang.svg";
 
 const Header = ({ saveList, setSaveList }) => {
+  console.log("render Header");
   const [searchValue, setSearchValue] = useState("");
-
   const searchMovies = (event) => {
     setSearchValue(event.target.value);
     const filtered = saveList.filter((movie) =>
@@ -16,10 +17,10 @@ const Header = ({ saveList, setSaveList }) => {
 
   return (
     <div className="main-header">
-      <div className="logo">
+      <Link className="logo" to={`/`}>
         <img src={logoSvg} alt="logo" />
         <span>Filmagnet</span>
-      </div>
+      </Link>
       <form action="">
         <input
           className="search"
@@ -49,4 +50,4 @@ const Header = ({ saveList, setSaveList }) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

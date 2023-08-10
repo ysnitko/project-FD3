@@ -1,63 +1,61 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import LeftAside from './components/LeftAside/LeftAside';
-import Home from './components/Home/Home';
-import MoviesList from './components/MoviesList/MoviesList';
-import About from './components/About/About';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import LeftAside from "./components/LeftAside/LeftAside";
+import Home from "./components/Home/Home";
+import MoviesList from "./components/MoviesList/MoviesList";
+import About from "./components/About/About";
+
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
-  const [showHomeScreen, setShowHomeScreen] = useState(false);
+  console.log("render App");
   const [showLoadMore, setShowLoadMore] = useState(true);
-  const [startList, setSaveList] = useState([]);
+  // const [saveList, setSaveList] = useState([]);
+  const [isShowLoader, setIsShowLoader] = useState(false);
 
-  const transferMovieList = (newData) => {
-    setSaveList(newData);
+  const navigate = useNavigate();
+
+  const navigateHome = () => {
+    navigate("/");
   };
 
-  const handleClickShow = () => {
-    setShowHomeScreen(true);
-    setShowLoadMore(true);
-  };
-
-  const handleClickHome = () => {
-    setShowHomeScreen(true);
+  const navigateMovies = () => {
+    navigate("/movies");
   };
 
   return (
     <div className="container">
-      <Header startList={startList} transferMovieList={transferMovieList} />
+      <Header />
       <div className="main-block">
-        <LeftAside />
+        <LeftAside navigateHome={navigateHome} />
         <Routes>
           <Route
             exact
             path="/"
-            element={
-              showHomeScreen ? (
-                <Navigate to="/movies" />
-              ) : (
-                <Home
-                  handleClickHome={handleClickHome}
-                  handleClickShow={handleClickShow}
-                />
-              )
-            }
+            element={<Home navigateMovies={navigateMovies} />}
           />
           <Route
             exact
             path="/movies"
             element={
               <MoviesList
-                startList={startList}
-                transferMovieList={transferMovieList}
+                isShowLoader={isShowLoader}
+                setIsShowLoader={setIsShowLoader}
                 showLoadMore={showLoadMore}
                 setShowLoadMore={setShowLoadMore}
               />
             }
           />
-          <Route path="/movies/about/:id" element={<About />} />
+          <Route
+            path="/movies/about/:id"
+            element={
+              <About
+                isShowLoader={isShowLoader}
+                setIsShowLoader={setIsShowLoader}
+              />
+            }
+          />
         </Routes>
       </div>
     </div>

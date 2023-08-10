@@ -1,13 +1,14 @@
 import React from "react";
 import "./LeftAside.css";
 
-const LeftAside = ({ handleClickHome }) => {
+const LeftAside = ({ navigateHome }) => {
+  console.log("render LeftAside");
   return (
     <div className="left-navigation">
       <button
         className="home-btn"
         type="button"
-        onClick={handleClickHome}
+        onClick={navigateHome}
       ></button>
       <button className="favorites-btn" type="button"></button>
     </div>

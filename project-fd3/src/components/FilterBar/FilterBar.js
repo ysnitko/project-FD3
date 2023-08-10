@@ -2,6 +2,7 @@ import React from "react";
 import "./FilterBar.css";
 
 const FilterBar = ({ movieList, setStartList, setMovieList }) => {
+  console.log("render FilterBar");
   const handleSort = (event) => {
     const sortedList = [...movieList];
     if (event.target.value === "by-title") {
