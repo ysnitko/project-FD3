@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import calendarIcons from "../../helpers/img/calendar-icon.svg";
-import Star_favotites_block from "../../helpers/img/Star_favotites_block.svg";
-import { Link, useParams } from "react-router-dom";
-import "./About.css";
-import Arrow from "../../helpers/img/Arrow.svg";
-import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
+import React, { useEffect, useMemo, useState } from 'react';
+import calendarIcons from '../../helpers/img/calendar-icon.svg';
+import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
+import { Link, useParams } from 'react-router-dom';
+import './About.css';
+import Arrow from '../../helpers/img/Arrow.svg';
+import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
 const About = ({ isShowLoader, setIsShowLoader }) => {
-  console.log("render About");
+  console.log('render About');
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
 
@@ -23,9 +23,12 @@ const About = ({ isShowLoader, setIsShowLoader }) => {
     fetchSHowInfo();
   }, [id, setIsShowLoader]);
 
-  let categoryMovie = movie.genres?.map((item, index) =>
-    index === movie.genres.length - 1 ? item : item + ", "
-  );
+  const transformCategory = useMemo(() => {
+    let categoryMovie = movie.genres?.map((item, index) =>
+      index === movie.genres.length - 1 ? item : item + ', '
+    );
+    return categoryMovie;
+  }, [movie.genres]);
 
   return (
     <div className="about-container">
@@ -47,7 +50,7 @@ const About = ({ isShowLoader, setIsShowLoader }) => {
             <div className="movie-info-row">
               <span className="movie-lbl">Movie</span>
               <span className="hd-lbl">HD</span>
-              <span className="category-movie">{categoryMovie}</span>
+              <span className="category-movie">{transformCategory}</span>
               <div className="date-realese">
                 <img src={calendarIcons} alt="calendar" />
                 <span>{movie.schedule?.days}</span>
