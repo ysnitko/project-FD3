@@ -37,9 +37,7 @@
 }
 
 body {
-  height: 100vh;
-  background: linear-gradient(180deg, #3e3e3e 0%, #070707 100%);
-  overflow: hidden;
+  background: linear-gradient(180deg, #3e3e3e 0%, #070707 100%) no-repeat center;
   font-family: var(--ff-poppins);
 }
 
