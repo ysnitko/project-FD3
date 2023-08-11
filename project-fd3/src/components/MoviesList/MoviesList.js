@@ -1,9 +1,9 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import Movie from "../Movie/Movie";
-import FilterBar from "../FilterBar/FilterBar";
-import "./MoviesList.css";
-import { Link } from "react-router-dom";
-import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import Movie from '../Movie/Movie';
+import FilterBar from '../FilterBar/FilterBar';
+import './MoviesList.css';
+import { Link } from 'react-router-dom';
+import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
 const MoviesList = ({
   showLoadMore,
@@ -20,7 +20,7 @@ const MoviesList = ({
   useEffect(() => {
     const fetchData = async () => {
       setIsShowLoader(true);
-      const url = "https://api.tvmaze.com/shows";
+      const url = 'https://api.tvmaze.com/shows';
       const response = await fetch(url);
       const result = await response.json();
       const initialMovies = result.slice(0, 10);
@@ -38,7 +38,7 @@ const MoviesList = ({
   }, [scrollToLast]);
 
   const scrollToLastMovie = useCallback(() => {
-    console.log("scroll to last");
+    console.log('scroll to last');
     setScrollToLast(startList);
     if (lastMovie.current) {
       lastMovie.current.scrollTop = lastMovie.current.scrollHeight;
@@ -69,6 +69,7 @@ const MoviesList = ({
           movieList={movieList}
           setStartList={setStartList}
           setMovieList={setMovieList}
+          setShowLoadMore={setShowLoadMore}
         />
         {isShowLoader ? (
           <LoadinSpinner />

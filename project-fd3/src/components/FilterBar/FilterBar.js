@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import './FilterBar.css';
 
-const FilterBar = ({ movieList, setStartList, setMovieList }) => {
+const FilterBar = ({ movieList, setStartList, setShowLoadMore }) => {
   console.log('render FilterBar');
 
-  // const initialList = useMemo(() => movieList, [movieList]);
   const [filteredMovieList, setFilteredMovieList] = useState([]);
-  // const [sortedMovieList, setSortedMovieList] = useState([]);
 
   const handleSort = (event) => {
     const sortedList = [...filteredMovieList];
@@ -33,27 +31,29 @@ const FilterBar = ({ movieList, setStartList, setMovieList }) => {
         return a.rating.average > b.rating.average ? -1 : 1;
       });
     }
-
-    setMovieList(sortedList);
-    // setMovieList(sortedList);
     setStartList(sortedList);
   };
 
   const handleChooseCategory = (event) => {
     let category = event.target.value;
-    if (category === 'All') {
-      console.log(movieList);
-      setFilteredMovieList(movieList);
-      setStartList(movieList);
-    }
-    console.log(movieList);
-    const filteredList = movieList.filter((movie) =>
+
+    // console.log(filteredMovieList);
+
+    let filteredList = movieList.filter((movie) =>
       movie.genres.includes(category)
     );
 
+    if (category === 'All') {
+      filteredList = [...movieList];
+      // setFilteredMovieList(movieList);
+      setFilteredMovieList(movieList);
+      setStartList(movieList);
+    }
+
     setFilteredMovieList(filteredList);
-    // setMovieList(filteredList);
+
     setStartList(filteredList);
+    setShowLoadMore(false);
   };
 
   return (
