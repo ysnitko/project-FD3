@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./Header.css";
-import logoSvg from "../../helpers/img/logo.svg";
-import langSvg from "../../helpers/img/lang.svg";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import logoSvg from '../../helpers/img/logo.svg';
+import langSvg from '../../helpers/img/lang.svg';
 
-const Header = ({ saveList, setSaveList }) => {
-  console.log("render Header");
-  const [searchValue, setSearchValue] = useState("");
+const Header = ({ setRenderedList, renderList }) => {
+  console.log('render Header');
+  const [searchValue, setSearchValue] = useState('');
+
   const searchMovies = (event) => {
+    event.preventDefault();
     setSearchValue(event.target.value);
-    const filtered = saveList.filter((movie) =>
+    if (event.target.value === '') {
+      setRenderedList(renderList);
+    }
+    const filtered = renderList.filter((movie) =>
       movie.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
     );
-    setSaveList(filtered);
+    setRenderedList(filtered);
   };
 
   return (

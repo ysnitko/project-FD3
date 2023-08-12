@@ -6,9 +6,15 @@ import { Link } from 'react-router-dom';
 import Paginat from '../Paginat/Paginat';
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
-const MoviesList = ({ setIsShowLoader, isShowLoader }) => {
+const MoviesList = ({
+  setIsShowLoader,
+  isShowLoader,
+  setSearchList,
+  renderList,
+  setRenderedList,
+}) => {
   const [movieList, setMovieList] = useState([]);
-  const [renderList, setRenderedList] = useState([]);
+
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
 
@@ -22,7 +28,7 @@ const MoviesList = ({ setIsShowLoader, isShowLoader }) => {
       setMovieList(result);
     };
     fetchData();
-  }, [setIsShowLoader]);
+  }, [setIsShowLoader, setSearchList]);
 
   return (
     <div className="movies-container">

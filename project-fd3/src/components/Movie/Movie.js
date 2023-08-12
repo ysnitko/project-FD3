@@ -4,7 +4,7 @@ import ratingStar from '../../helpers/img/rating.svg';
 import movieDuration from '../../helpers/img/watch-time.svg';
 
 const Movie = ({ imageCover, name, status, runtime, rating, category }) => {
-  // console.log('render Movie');
+  console.log('render Movie');
   let editCategory = category.map((item, index) =>
     index === category.length - 1 ? item : item + ', '
   );
@@ -36,4 +36,4 @@ const Movie = ({ imageCover, name, status, runtime, rating, category }) => {
   );
 };
 
-export default Movie;
+export default React.memo(Movie);

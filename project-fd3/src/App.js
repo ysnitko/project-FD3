@@ -11,6 +11,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 const App = () => {
   console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
+  const [renderList, setRenderedList] = useState([]);
 
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <Header />
+      <Header renderList={renderList} setRenderedList={setRenderedList} />
       <div className="main-block">
         <LeftAside navigateHome={navigateHome} />
         <Routes>
@@ -38,6 +39,8 @@ const App = () => {
             path="/movies"
             element={
               <MoviesList
+                renderList={renderList}
+                setRenderedList={setRenderedList}
                 isShowLoader={isShowLoader}
                 setIsShowLoader={setIsShowLoader}
               />

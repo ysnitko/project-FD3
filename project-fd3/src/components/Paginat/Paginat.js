@@ -10,8 +10,6 @@ const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
       (currentPage - 1) * perPage,
       currentPage * perPage
     );
-    console.log(paginatedMovieList);
-    console.log(updatedList);
     setRenderedList(paginatedMovieList);
   }, [
     setRenderedList,
