@@ -33,8 +33,6 @@ const MoviesList = ({ setIsShowLoader, isShowLoader }) => {
           setUpdatedList={setUpdatedList}
           movieList={movieList}
           setMovieList={setMovieList}
-          setRenderedList={setRenderedList}
-          updatedList={updatedList}
         />
         {isShowLoader ? (
           <LoadinSpinner />
@@ -59,13 +57,10 @@ const MoviesList = ({ setIsShowLoader, isShowLoader }) => {
               ))}
             </ul>
             <Paginat
-              setIsFiltered={setIsFiltered}
               isFiltered={isFiltered}
               setRenderedList={setRenderedList}
               movieList={movieList}
-              renderList={renderList}
               updatedList={updatedList}
-              setUpdatedList={setUpdatedList}
             />
           </div>
         )}

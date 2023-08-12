@@ -3,10 +3,7 @@ import './FilterBar.css';
 
 const FilterBar = ({
   movieList,
-  setMovieList,
   setUpdatedList,
-  updatedList,
-  setRenderedList,
   setIsFiltered,
   isFiltered,
 }) => {
@@ -14,10 +11,8 @@ const FilterBar = ({
 
   const [filteredMovieList, setFilteredMovieList] = useState([]);
 
-  console.log(isFiltered);
   const handleSort = (event) => {
     const sortedList = isFiltered ? [...filteredMovieList] : [...movieList];
-    console.log(sortedList);
     if (event.target.value === 'by-title') {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;

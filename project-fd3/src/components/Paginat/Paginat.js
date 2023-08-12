@@ -1,14 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './Paginat.css';
 
-const Paginat = ({
-  movieList,
-  setRenderedList,
-  updatedList,
-  setUpdatedList,
-  setIsFiltered,
-  isFiltered,
-}) => {
+const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
   const [perPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(1);
 
