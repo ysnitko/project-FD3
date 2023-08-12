@@ -1,103 +1,63 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Movie from '../Movie/Movie';
 import FilterBar from '../FilterBar/FilterBar';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
+import Paginat from '../Paginat/Paginat';
+
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
-const MoviesList = ({
-  showLoadMore,
-  setShowLoadMore,
-  setIsShowLoader,
-  isShowLoader,
-}) => {
-  const [startList, setStartList] = useState([]);
+const MoviesList = ({ setShowLoadMore, setIsShowLoader, isShowLoader }) => {
   const [movieList, setMovieList] = useState([]);
-  const [shownMovies, setShownMovies] = useState(10);
-  const [scrollToLast, setScrollToLast] = useState([]);
-  const lastMovie = useRef(null);
+
+  const [renderList, setRenderedList] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsShowLoader(true);
-      const url = 'https://api.tvmaze.com/shows';
+      const url = `https://api.tvmaze.com/shows`;
       const response = await fetch(url);
       const result = await response.json();
-      const initialMovies = result.slice(0, 10);
       setIsShowLoader(false);
       setMovieList(result);
-      setStartList(initialMovies);
+      setShowLoadMore(true);
     };
     fetchData();
-  }, [setIsShowLoader]);
-
-  useEffect(() => {
-    if (lastMovie.current) {
-      lastMovie.current.scrollTop = lastMovie.current.scrollHeight;
-    }
-  }, [scrollToLast]);
-
-  const scrollToLastMovie = useCallback(() => {
-    console.log('scroll to last');
-    setScrollToLast(startList);
-    if (lastMovie.current) {
-      lastMovie.current.scrollTop = lastMovie.current.scrollHeight;
-    }
-  }, [startList]);
-
-  const handleClickMore = useCallback(() => {
-    const nextMovies = [...movieList].slice(shownMovies, shownMovies + 10);
-    setStartList((prevMovies) => [...prevMovies, ...nextMovies]);
-    setShownMovies((prevCount) => prevCount + 10);
-
-    if (startList.length >= movieList.length) {
-      setShowLoadMore(false);
-    }
-    scrollToLastMovie();
-  }, [
-    movieList,
-    setShowLoadMore,
-    shownMovies,
-    startList.length,
-    scrollToLastMovie,
-  ]);
+  }, [setIsShowLoader, setShowLoadMore]);
+  console.log(movieList);
 
   return (
     <div className="movies-container">
       <div>
         <FilterBar
           movieList={movieList}
-          setStartList={setStartList}
           setMovieList={setMovieList}
           setShowLoadMore={setShowLoadMore}
+          setRenderedList={setRenderedList}
         />
         {isShowLoader ? (
           <LoadinSpinner />
         ) : (
-          <ul className="movies-list" ref={lastMovie}>
-            {startList.map((movie) => (
-              <Link
-                className="movie-link"
-                key={movie.id}
-                to={`/movies/about/${movie.id}`}
-              >
-                <Movie
-                  imageCover={movie.image.medium}
-                  name={movie.name}
-                  status={movie.status}
-                  runtime={movie.runtime}
-                  rating={movie.rating.average}
-                  category={movie.genres}
-                />
-              </Link>
-            ))}
-          </ul>
-        )}
-        {showLoadMore && (
-          <div className="loadMoreMovies">
-            <button className="loadMoreMovies-btn" onClick={handleClickMore}>
-              Load More
-            </button>
+          <div>
+            <ul className="movies-list">
+              {renderList.map((movie) => (
+                <Link
+                  className="movie-link"
+                  key={movie.id}
+                  to={`/movies/about/${movie.id}`}
+                >
+                  <Movie
+                    imageCover={movie.image.medium}
+                    name={movie.name}
+                    status={movie.status}
+                    runtime={movie.runtime}
+                    rating={movie.rating.average}
+                    category={movie.genres}
+                  />
+                </Link>
+              ))}
+            </ul>
+            <Paginat setRenderedList={setRenderedList} movieList={movieList} />
           </div>
         )}
       </div>

@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import './FilterBar.css';
 
-const FilterBar = ({ movieList, setStartList, setShowLoadMore }) => {
+const FilterBar = ({
+  movieList,
+  setTest,
+  setIsFiltered,
+  isFiltered,
+  setMovieList,
+  paginatedMovieList,
+}) => {
   console.log('render FilterBar');
 
   const [filteredMovieList, setFilteredMovieList] = useState([]);
+  console.log(movieList);
 
   const handleSort = (event) => {
-    const sortedList = [...filteredMovieList];
+    const sortedList = isFiltered ? [...filteredMovieList] : [...movieList];
     if (event.target.value === 'by-title') {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
@@ -31,7 +39,8 @@ const FilterBar = ({ movieList, setStartList, setShowLoadMore }) => {
         return a.rating.average > b.rating.average ? -1 : 1;
       });
     }
-    setStartList(sortedList);
+    setMovieList(sortedList);
+    setFilteredMovieList(sortedList);
   };
 
   const handleChooseCategory = (event) => {
@@ -45,15 +54,14 @@ const FilterBar = ({ movieList, setStartList, setShowLoadMore }) => {
 
     if (category === 'All') {
       filteredList = [...movieList];
-      // setFilteredMovieList(movieList);
       setFilteredMovieList(movieList);
-      setStartList(movieList);
+      // setStartList(movieList);
     }
 
     setFilteredMovieList(filteredList);
-
-    setStartList(filteredList);
-    setShowLoadMore(false);
+    setTest(filteredList);
+    // setStartList(filteredList);
+    setIsFiltered(true);
   };
 
   return (
@@ -65,7 +73,7 @@ const FilterBar = ({ movieList, setStartList, setShowLoadMore }) => {
       <div className="filters">
         <div className="category-select">
           <span>choose category:</span>
-          <select onChange={handleChooseCategory}>
+          <select onChange={handleChooseCategory} defaultValue="All">
             <option value="All">All</option>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>

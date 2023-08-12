@@ -1,17 +1,17 @@
-import React from "react";
-import "./Movie.css";
-import ratingStar from "../../helpers/img/rating.svg";
-import movieDuration from "../../helpers/img/watch-time.svg";
+import React from 'react';
+import './Movie.css';
+import ratingStar from '../../helpers/img/rating.svg';
+import movieDuration from '../../helpers/img/watch-time.svg';
 
 const Movie = ({ imageCover, name, status, runtime, rating, category }) => {
-  console.log("render Movie");
+  // console.log('render Movie');
   let editCategory = category.map((item, index) =>
-    index === category.length - 1 ? item : item + ", "
+    index === category.length - 1 ? item : item + ', '
   );
 
   return (
     <li className="movie">
-      <img className="movie-cover" src={imageCover} alt={"movie-cover"} />
+      <img className="movie-cover" src={imageCover} alt={'movie-cover'} />
       <div className="movie-info">
         <div className="movie-title">
           <span>{name}</span>
@@ -36,4 +36,4 @@ const Movie = ({ imageCover, name, status, runtime, rating, category }) => {
   );
 };
 
-export default React.memo(Movie);
+export default Movie;

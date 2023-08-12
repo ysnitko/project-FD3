@@ -1,0 +1,20 @@
+.pagination-btn {
+    display: block;
+    color: var(--citrine);
+    background: none;
+    border: none;
+  }
+
+.pagination-buttons {
+    width: 100%;
+    margin-top: 10px;
+   display: flex;
+   justify-content: center;
+   padding: 10px 0;
+   
+}
+
+.active-btn {
+    border: 1px solid var(--citrine);
+}
+  

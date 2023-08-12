@@ -18,19 +18,9 @@
   /* overflow: hidden; */
 }
 
-.loadMoreMovies-btn {
-  display: block;
-  max-width: 120px;
-  margin: 0 auto;
-  color: var(--citrine);
-  background: none;
-  border: none;
-}
+
 
 .movie-link {
   text-decoration: none;
 }
 
-.loadMoreMovies {
-  width: 100%;
-}
