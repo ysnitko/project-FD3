@@ -3,19 +3,21 @@ import './FilterBar.css';
 
 const FilterBar = ({
   movieList,
-  setTest,
+  setMovieList,
+  setUpdatedList,
+  updatedList,
+  setRenderedList,
   setIsFiltered,
   isFiltered,
-  setMovieList,
-  paginatedMovieList,
 }) => {
   console.log('render FilterBar');
 
   const [filteredMovieList, setFilteredMovieList] = useState([]);
-  console.log(movieList);
 
+  console.log(isFiltered);
   const handleSort = (event) => {
     const sortedList = isFiltered ? [...filteredMovieList] : [...movieList];
+    console.log(sortedList);
     if (event.target.value === 'by-title') {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
@@ -39,15 +41,12 @@ const FilterBar = ({
         return a.rating.average > b.rating.average ? -1 : 1;
       });
     }
-    setMovieList(sortedList);
+    setUpdatedList(sortedList);
     setFilteredMovieList(sortedList);
   };
 
   const handleChooseCategory = (event) => {
     let category = event.target.value;
-
-    // console.log(filteredMovieList);
-
     let filteredList = movieList.filter((movie) =>
       movie.genres.includes(category)
     );
@@ -55,12 +54,9 @@ const FilterBar = ({
     if (category === 'All') {
       filteredList = [...movieList];
       setFilteredMovieList(movieList);
-      // setStartList(movieList);
     }
-
+    setUpdatedList(filteredList);
     setFilteredMovieList(filteredList);
-    setTest(filteredList);
-    // setStartList(filteredList);
     setIsFiltered(true);
   };
 

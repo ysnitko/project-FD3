@@ -1,17 +1,33 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import './Paginat.css';
 
-const Paginat = ({ movieList, setRenderedList }) => {
+const Paginat = ({
+  movieList,
+  setRenderedList,
+  updatedList,
+  setUpdatedList,
+  setIsFiltered,
+  isFiltered,
+}) => {
   const [perPage] = useState(15);
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    const paginatedMovieList = movieList.slice(
+    let paginatedMovieList = (isFiltered ? updatedList : movieList).slice(
       (currentPage - 1) * perPage,
       currentPage * perPage
     );
+    console.log(paginatedMovieList);
+    console.log(updatedList);
     setRenderedList(paginatedMovieList);
-  }, [setRenderedList, perPage, currentPage, movieList]);
+  }, [
+    setRenderedList,
+    perPage,
+    currentPage,
+    updatedList,
+    isFiltered,
+    movieList,
+  ]);
 
   const handlePageChange = useCallback(
     (page) => {
@@ -19,7 +35,9 @@ const Paginat = ({ movieList, setRenderedList }) => {
     },
     [setCurrentPage]
   );
-  const numPages = Math.ceil(movieList.length / perPage);
+  const numPages = isFiltered
+    ? Math.ceil(updatedList.length / perPage)
+    : Math.ceil(movieList.length / perPage);
   return (
     <div className="pagination-buttons">
       {Array.from({ length: numPages }, (_, index) => (

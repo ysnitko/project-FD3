@@ -1,27 +1,25 @@
-import React, { useState } from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
-import LeftAside from "./components/LeftAside/LeftAside";
-import Home from "./components/Home/Home";
-import MoviesList from "./components/MoviesList/MoviesList";
-import About from "./components/About/About";
+import React, { useState } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import LeftAside from './components/LeftAside/LeftAside';
+import Home from './components/Home/Home';
+import MoviesList from './components/MoviesList/MoviesList';
+import About from './components/About/About';
 
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
-  console.log("render App");
-  const [showLoadMore, setShowLoadMore] = useState(true);
-  // const [saveList, setSaveList] = useState([]);
+  console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
 
   const navigate = useNavigate();
 
   const navigateHome = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const navigateMovies = () => {
-    navigate("/movies");
+    navigate('/movies');
   };
 
   return (
@@ -42,8 +40,6 @@ const App = () => {
               <MoviesList
                 isShowLoader={isShowLoader}
                 setIsShowLoader={setIsShowLoader}
-                showLoadMore={showLoadMore}
-                setShowLoadMore={setShowLoadMore}
               />
             }
           />

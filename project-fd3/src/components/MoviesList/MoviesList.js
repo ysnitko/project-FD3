@@ -4,13 +4,13 @@ import FilterBar from '../FilterBar/FilterBar';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
 import Paginat from '../Paginat/Paginat';
-
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
-const MoviesList = ({ setShowLoadMore, setIsShowLoader, isShowLoader }) => {
+const MoviesList = ({ setIsShowLoader, isShowLoader }) => {
   const [movieList, setMovieList] = useState([]);
-
   const [renderList, setRenderedList] = useState([]);
+  const [updatedList, setUpdatedList] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,20 +20,21 @@ const MoviesList = ({ setShowLoadMore, setIsShowLoader, isShowLoader }) => {
       const result = await response.json();
       setIsShowLoader(false);
       setMovieList(result);
-      setShowLoadMore(true);
     };
     fetchData();
-  }, [setIsShowLoader, setShowLoadMore]);
-  console.log(movieList);
+  }, [setIsShowLoader]);
 
   return (
     <div className="movies-container">
       <div>
         <FilterBar
+          setIsFiltered={setIsFiltered}
+          isFiltered={isFiltered}
+          setUpdatedList={setUpdatedList}
           movieList={movieList}
           setMovieList={setMovieList}
-          setShowLoadMore={setShowLoadMore}
           setRenderedList={setRenderedList}
+          updatedList={updatedList}
         />
         {isShowLoader ? (
           <LoadinSpinner />
@@ -57,7 +58,15 @@ const MoviesList = ({ setShowLoadMore, setIsShowLoader, isShowLoader }) => {
                 </Link>
               ))}
             </ul>
-            <Paginat setRenderedList={setRenderedList} movieList={movieList} />
+            <Paginat
+              setIsFiltered={setIsFiltered}
+              isFiltered={isFiltered}
+              setRenderedList={setRenderedList}
+              movieList={movieList}
+              renderList={renderList}
+              updatedList={updatedList}
+              setUpdatedList={setUpdatedList}
+            />
           </div>
         )}
       </div>
