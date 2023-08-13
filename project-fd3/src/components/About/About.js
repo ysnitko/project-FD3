@@ -6,14 +6,10 @@ import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
-const About = ({ isShowLoader, setIsShowLoader, setIsShowFavorite }) => {
+const About = ({ isShowLoader, setIsShowLoader, setFavoriteMovies }) => {
   console.log('render About');
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
-
-  const handleAddFavorites = () => {
-    setIsShowFavorite(true);
-  };
 
   useEffect(() => {
     const fetchSHowInfo = async () => {
@@ -33,6 +29,12 @@ const About = ({ isShowLoader, setIsShowLoader, setIsShowFavorite }) => {
     );
     return categoryMovie;
   }, [movie.genres]);
+
+  const handleAddFavorites = () => {
+    let addFavorites = [];
+    addFavorites.push(movie);
+    setFavoriteMovies(addFavorites);
+  };
 
   return (
     <div className="about-container">

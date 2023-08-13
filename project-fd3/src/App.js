@@ -13,7 +13,6 @@ const App = () => {
   console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
-  const [isShowFavorite, setIsShowFavorite] = useState(false);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const navigate = useNavigate();
@@ -26,13 +25,18 @@ const App = () => {
     navigate('/movies');
   };
 
+  const navigateFavorites = () => {
+    navigate('/favorites');
+  };
+
   return (
     <div className="container">
       <Header renderList={renderList} setRenderedList={setRenderedList} />
       <div className="main-block">
         <LeftAside
           navigateHome={navigateHome}
-          isShowFavorite={isShowFavorite}
+          navigateFavorites={navigateFavorites}
+          favoriteMovies={favoriteMovies}
         />
         <Routes>
           <Route
@@ -54,7 +58,7 @@ const App = () => {
           />
           <Route
             exact
-            path="/favorite"
+            path="/favorites"
             element={<FavoriteMovies favoriteMovies={favoriteMovies} />}
           />
           <Route
@@ -63,7 +67,7 @@ const App = () => {
               <About
                 isShowLoader={isShowLoader}
                 setIsShowLoader={setIsShowLoader}
-                setIsShowFavorite={setIsShowFavorite}
+                setFavoriteMovies={setFavoriteMovies}
               />
             }
           />

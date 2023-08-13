@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './Pagination.css';
 
 const Pagination = ({
@@ -6,9 +6,10 @@ const Pagination = ({
   setRenderedList,
   updatedList,
   isFiltered,
+  setCurrentPage,
+  currentPage,
 }) => {
   const perPage = 15;
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     let paginatedMovieList = (isFiltered ? updatedList : movieList).slice(
@@ -33,7 +34,7 @@ const Pagination = ({
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [isFiltered]);
+  }, [isFiltered, setCurrentPage]);
 
   const numPages = isFiltered
     ? Math.ceil(updatedList.length / perPage)

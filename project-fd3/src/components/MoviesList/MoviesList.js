@@ -16,6 +16,7 @@ const MoviesList = ({
   const [movieList, setMovieList] = useState([]);
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +34,7 @@ const MoviesList = ({
     <div className="movies-container">
       <div>
         <FilterBar
+          setCurrentPage={setCurrentPage}
           setIsFiltered={setIsFiltered}
           isFiltered={isFiltered}
           setUpdatedList={setUpdatedList}
@@ -62,6 +64,8 @@ const MoviesList = ({
               ))}
             </ul>
             <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
               isFiltered={isFiltered}
               setRenderedList={setRenderedList}
               movieList={movieList}

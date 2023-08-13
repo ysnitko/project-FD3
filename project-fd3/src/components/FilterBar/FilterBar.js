@@ -6,6 +6,7 @@ const FilterBar = ({
   setUpdatedList,
   setIsFiltered,
   isFiltered,
+  setCurrentPage,
 }) => {
   console.log('render FilterBar');
 
@@ -38,6 +39,7 @@ const FilterBar = ({
     }
     setFilteredMovieList(sortedList);
     setUpdatedList(sortedList);
+    setCurrentPage(1);
   };
 
   const handleChooseCategory = (event) => {
@@ -53,6 +55,7 @@ const FilterBar = ({
     setIsFiltered(true);
     setUpdatedList(filteredList);
     setFilteredMovieList(filteredList);
+    setCurrentPage(1);
   };
 
   return (
