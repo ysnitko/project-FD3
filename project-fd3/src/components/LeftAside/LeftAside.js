@@ -1,8 +1,8 @@
-import React from "react";
-import "./LeftAside.css";
+import React from 'react';
+import './LeftAside.css';
 
-const LeftAside = ({ navigateHome }) => {
-  console.log("render LeftAside");
+const LeftAside = ({ navigateHome, isShowFavorite }) => {
+  console.log('render LeftAside');
   return (
     <div className="left-navigation">
       <button
@@ -10,7 +10,11 @@ const LeftAside = ({ navigateHome }) => {
         type="button"
         onClick={navigateHome}
       ></button>
-      <button className="favorites-btn" type="button"></button>
+      {isShowFavorite ? (
+        <button className="favorites-add-btn" type="button"></button>
+      ) : (
+        <button className="favorites-btn-none" type="button"></button>
+      )}
     </div>
   );
 };

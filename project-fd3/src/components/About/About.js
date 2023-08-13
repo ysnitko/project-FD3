@@ -6,10 +6,14 @@ import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
-const About = ({ isShowLoader, setIsShowLoader }) => {
+const About = ({ isShowLoader, setIsShowLoader, setIsShowFavorite }) => {
   console.log('render About');
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
+
+  const handleAddFavorites = () => {
+    setIsShowFavorite(true);
+  };
 
   useEffect(() => {
     const fetchSHowInfo = async () => {
@@ -69,7 +73,12 @@ const About = ({ isShowLoader, setIsShowLoader }) => {
                   <span>{movie.rating?.average}</span>
                 </div>
               </div>
-              <button className="add-favorites-btn">ADD TO FAVORITES</button>
+              <button
+                className="add-favorites-btn"
+                onClick={handleAddFavorites}
+              >
+                ADD TO FAVORITES
+              </button>
             </div>
             <span
               className="movie-summary"

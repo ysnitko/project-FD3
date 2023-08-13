@@ -5,6 +5,7 @@ import LeftAside from './components/LeftAside/LeftAside';
 import Home from './components/Home/Home';
 import MoviesList from './components/MoviesList/MoviesList';
 import About from './components/About/About';
+import FavoriteMovies from './components/FavoriteMovies/FavoriteMovies';
 
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
@@ -12,6 +13,8 @@ const App = () => {
   console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
+  const [isShowFavorite, setIsShowFavorite] = useState(false);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const navigate = useNavigate();
 
@@ -27,7 +30,10 @@ const App = () => {
     <div className="container">
       <Header renderList={renderList} setRenderedList={setRenderedList} />
       <div className="main-block">
-        <LeftAside navigateHome={navigateHome} />
+        <LeftAside
+          navigateHome={navigateHome}
+          isShowFavorite={isShowFavorite}
+        />
         <Routes>
           <Route
             exact
@@ -47,11 +53,17 @@ const App = () => {
             }
           />
           <Route
+            exact
+            path="/favorite"
+            element={<FavoriteMovies favoriteMovies={favoriteMovies} />}
+          />
+          <Route
             path="/movies/about/:id"
             element={
               <About
                 isShowLoader={isShowLoader}
                 setIsShowLoader={setIsShowLoader}
+                setIsShowFavorite={setIsShowFavorite}
               />
             }
           />
