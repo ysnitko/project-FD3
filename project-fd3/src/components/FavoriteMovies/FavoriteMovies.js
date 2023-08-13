@@ -4,6 +4,7 @@ import Movie from '../Movie/Movie';
 import './FavoriteMovies.css';
 
 const FavoriteMovies = ({ favoriteMovies }) => {
+  console.log('rendering FavoriteMovies');
   return (
     <div className="favorites-container">
       <div>

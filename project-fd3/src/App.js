@@ -6,13 +6,13 @@ import Home from './components/Home/Home';
 import MoviesList from './components/MoviesList/MoviesList';
 import About from './components/About/About';
 import FavoriteMovies from './components/FavoriteMovies/FavoriteMovies';
-
 import { Routes, Route, useNavigate } from 'react-router-dom';
 
 const App = () => {
   console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
+
   const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const navigate = useNavigate();

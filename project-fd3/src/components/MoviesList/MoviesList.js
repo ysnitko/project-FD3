@@ -9,10 +9,10 @@ import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 const MoviesList = ({
   setIsShowLoader,
   isShowLoader,
-  setSearchList,
   renderList,
   setRenderedList,
 }) => {
+  console.log('rendering MoviesList');
   const [movieList, setMovieList] = useState([]);
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -28,7 +28,7 @@ const MoviesList = ({
       setMovieList(result);
     };
     fetchData();
-  }, [setIsShowLoader, setSearchList]);
+  }, [setIsShowLoader]);
 
   return (
     <div className="movies-container">
@@ -39,7 +39,6 @@ const MoviesList = ({
           isFiltered={isFiltered}
           setUpdatedList={setUpdatedList}
           movieList={movieList}
-          setMovieList={setMovieList}
         />
         {isShowLoader ? (
           <LoadinSpinner />

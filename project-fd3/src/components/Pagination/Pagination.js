@@ -9,6 +9,7 @@ const Pagination = ({
   setCurrentPage,
   currentPage,
 }) => {
+  console.log('rendering Pagination');
   const perPage = 15;
 
   useEffect(() => {
@@ -16,17 +17,9 @@ const Pagination = ({
       (currentPage - 1) * perPage,
       currentPage * perPage
     );
-    console.log(isFiltered);
 
     setRenderedList(paginatedMovieList);
-  }, [
-    setRenderedList,
-    perPage,
-    currentPage,
-    updatedList,
-    isFiltered,
-    movieList,
-  ]);
+  }, [setRenderedList, currentPage, updatedList, isFiltered, movieList]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -56,4 +49,4 @@ const Pagination = ({
   );
 };
 
-export default Pagination;
+export default React.memo(Pagination);
