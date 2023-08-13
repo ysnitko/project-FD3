@@ -36,8 +36,8 @@ const FilterBar = ({
         return a.rating.average > b.rating.average ? -1 : 1;
       });
     }
-    setUpdatedList(sortedList);
     setFilteredMovieList(sortedList);
+    setUpdatedList(sortedList);
   };
 
   const handleChooseCategory = (event) => {
@@ -50,9 +50,9 @@ const FilterBar = ({
       filteredList = [...movieList];
       setFilteredMovieList(movieList);
     }
+    setIsFiltered(true);
     setUpdatedList(filteredList);
     setFilteredMovieList(filteredList);
-    setIsFiltered(true);
   };
 
   return (
@@ -64,7 +64,7 @@ const FilterBar = ({
       <div className="filters">
         <div className="category-select">
           <span>choose category:</span>
-          <select onChange={handleChooseCategory} defaultValue="All">
+          <select onChange={handleChooseCategory}>
             <option value="All">All</option>
             <option value="Action">Action</option>
             <option value="Adventure">Adventure</option>
@@ -76,7 +76,6 @@ const FilterBar = ({
             <option value="Music">Music</option>
             <option value="Mystery">Mystery</option>
             <option value="Romance">Romance</option>
-            <option value="Science">Science</option>
             <option value="Supernatural">Supernatural</option>
             <option value="Thriller">Thriller</option>
           </select>

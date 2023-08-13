@@ -1,8 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import './Paginat.css';
+import React, { useState, useEffect } from 'react';
+import './Pagination.css';
 
-const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
-  const [perPage] = useState(15);
+const Pagination = ({
+  movieList,
+  setRenderedList,
+  updatedList,
+  isFiltered,
+}) => {
+  const perPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -10,6 +15,8 @@ const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
       (currentPage - 1) * perPage,
       currentPage * perPage
     );
+    console.log(isFiltered);
+
     setRenderedList(paginatedMovieList);
   }, [
     setRenderedList,
@@ -20,12 +27,14 @@ const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
     movieList,
   ]);
 
-  const handlePageChange = useCallback(
-    (page) => {
-      setCurrentPage(page);
-    },
-    [setCurrentPage]
-  );
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [isFiltered]);
+
   const numPages = isFiltered
     ? Math.ceil(updatedList.length / perPage)
     : Math.ceil(movieList.length / perPage);
@@ -46,4 +55,4 @@ const Paginat = ({ movieList, setRenderedList, updatedList, isFiltered }) => {
   );
 };
 
-export default React.memo(Paginat);
+export default Pagination;

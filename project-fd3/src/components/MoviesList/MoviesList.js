@@ -3,7 +3,7 @@ import Movie from '../Movie/Movie';
 import FilterBar from '../FilterBar/FilterBar';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
-import Paginat from '../Paginat/Paginat';
+import Pagination from '../Pagination/Pagination';
 import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
 const MoviesList = ({
@@ -14,7 +14,6 @@ const MoviesList = ({
   setRenderedList,
 }) => {
   const [movieList, setMovieList] = useState([]);
-
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
 
@@ -62,7 +61,7 @@ const MoviesList = ({
                 </Link>
               ))}
             </ul>
-            <Paginat
+            <Pagination
               isFiltered={isFiltered}
               setRenderedList={setRenderedList}
               movieList={movieList}
