@@ -1,23 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
-import logoSvg from '../../helpers/img/logo.svg';
-import langSvg from '../../helpers/img/lang.svg';
+import React, { useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import logoSvg from "../../helpers/img/logo.svg";
+import langSvg from "../../helpers/img/lang.svg";
 
 const Header = ({ setRenderedList, renderList }) => {
-  console.log('render Header');
-  const [searchValue, setSearchValue] = useState('');
+  console.log("render Header");
+  const [searchValue, setSearchValue] = useState("");
+
+  let searchRef = useRef(null);
 
   const searchMovies = (event) => {
     event.preventDefault();
-    setSearchValue(event.target.value);
-    if (event.target.value === '') {
-      setRenderedList(renderList);
+    if (searchRef) {
+      searchRef = event.target.value;
+      setSearchValue(searchRef);
     }
+
     const filtered = renderList.filter((movie) =>
       movie.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
     );
     setRenderedList(filtered);
+
+    if (searchRef === "") {
+      setRenderedList((prev) => [...prev]);
+      console.log(renderList);
+    }
   };
 
   return (
@@ -26,14 +34,15 @@ const Header = ({ setRenderedList, renderList }) => {
         <img src={logoSvg} alt="logo" />
         <span>Filmagnet</span>
       </Link>
-      <form action="">
+      <form action="" onSubmit={searchMovies}>
         <input
+          ref={searchRef}
           className="search"
           type="search"
           name=""
-          value={searchValue}
+          defaultValue=""
           placeholder="search..."
-          onChange={searchMovies}
+          // onChange={searchMovies}
         />
       </form>
 

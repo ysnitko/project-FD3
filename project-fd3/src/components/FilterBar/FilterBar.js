@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './FilterBar.css';
+import React, { useState } from "react";
+import "./FilterBar.css";
 
 const FilterBar = ({
   movieList,
@@ -8,38 +8,38 @@ const FilterBar = ({
   isFiltered,
   setCurrentPage,
 }) => {
-  console.log('render FilterBar');
+  console.log("render FilterBar");
 
   const [filteredMovieList, setFilteredMovieList] = useState([]);
 
   const handleSort = (event) => {
     const sortedList = isFiltered ? [...filteredMovieList] : [...movieList];
-    if (event.target.value === 'by-title') {
+    console.log(sortedList);
+    if (event.target.value === "by-title") {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
       });
     }
 
-    if (event.target.value === 'by-title-reverse') {
+    if (event.target.value === "by-title-reverse") {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
       });
     }
 
-    if (event.target.value === 'by-rating-start') {
+    if (event.target.value === "by-rating-start") {
       sortedList.sort((a, b) => {
         return a.rating.average > b.rating.average ? 1 : -1;
       });
     }
 
-    if (event.target.value === 'by-rating-end') {
+    if (event.target.value === "by-rating-end") {
       sortedList.sort((a, b) => {
         return a.rating.average > b.rating.average ? -1 : 1;
       });
     }
     setFilteredMovieList(sortedList);
     setUpdatedList(sortedList);
-    setCurrentPage(1);
   };
 
   const handleChooseCategory = (event) => {
@@ -48,7 +48,7 @@ const FilterBar = ({
       movie.genres.includes(category)
     );
 
-    if (category === 'All') {
+    if (category === "All") {
       filteredList = [...movieList];
       setFilteredMovieList(movieList);
     }

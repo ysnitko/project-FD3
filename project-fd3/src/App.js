@@ -1,32 +1,31 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import LeftAside from './components/LeftAside/LeftAside';
-import Home from './components/Home/Home';
-import MoviesList from './components/MoviesList/MoviesList';
-import About from './components/About/About';
-import FavoriteMovies from './components/FavoriteMovies/FavoriteMovies';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import LeftAside from "./components/LeftAside/LeftAside";
+import Home from "./components/Home/Home";
+import MoviesList from "./components/MoviesList/MoviesList";
+import About from "./components/About/About";
+import FavoriteMovies from "./components/FavoriteMovies/FavoriteMovies";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
-  console.log('render App');
+  console.log("render App");
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
-
   const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const navigate = useNavigate();
 
   const navigateHome = () => {
-    navigate('/');
+    navigate("/");
   };
 
   const navigateMovies = () => {
-    navigate('/movies');
+    navigate("/movies");
   };
 
   const navigateFavorites = () => {
-    navigate('/favorites');
+    navigate("/favorites");
   };
 
   return (
@@ -68,6 +67,7 @@ const App = () => {
                 isShowLoader={isShowLoader}
                 setIsShowLoader={setIsShowLoader}
                 setFavoriteMovies={setFavoriteMovies}
+                favoriteMovies={favoriteMovies}
               />
             }
           />

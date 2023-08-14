@@ -12,15 +12,10 @@
 .movies-container {
   width: 100%;
   padding: 0 10px 0 20px;
-
   display: flex;
   flex-direction: column;
-  /* overflow: hidden; */
 }
-
-
 
 .movie-link {
   text-decoration: none;
 }
-

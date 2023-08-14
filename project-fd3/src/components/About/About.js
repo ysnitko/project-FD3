@@ -1,13 +1,18 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import calendarIcons from '../../helpers/img/calendar-icon.svg';
-import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
-import { Link, useParams } from 'react-router-dom';
-import './About.css';
-import Arrow from '../../helpers/img/Arrow.svg';
-import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
+import React, { useEffect, useMemo, useState } from "react";
+import calendarIcons from "../../helpers/img/calendar-icon.svg";
+import Star_favotites_block from "../../helpers/img/Star_favotites_block.svg";
+import { Link, useParams } from "react-router-dom";
+import "./About.css";
+import Arrow from "../../helpers/img/Arrow.svg";
+import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
 
-const About = ({ isShowLoader, setIsShowLoader, setFavoriteMovies }) => {
-  console.log('render About');
+const About = ({
+  isShowLoader,
+  setIsShowLoader,
+  setFavoriteMovies,
+  favoriteMovies,
+}) => {
+  console.log("render About");
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
 
@@ -25,15 +30,21 @@ const About = ({ isShowLoader, setIsShowLoader, setFavoriteMovies }) => {
 
   const transformCategory = useMemo(() => {
     let categoryMovie = movie.genres?.map((item, index) =>
-      index === movie.genres.length - 1 ? item : item + ', '
+      index === movie.genres.length - 1 ? item : item + ", "
     );
     return categoryMovie;
   }, [movie.genres]);
 
+  const isFavorites = (id) => favoriteMovies.some((movie) => movie.id === id);
+
   const handleAddFavorites = () => {
-    let addFavorites = [];
-    addFavorites.push(movie);
-    setFavoriteMovies(addFavorites);
+    setFavoriteMovies((prev) => [...prev, movie]);
+  };
+
+  const handleDeleteFavorites = (id) => {
+    const deleteFavorites = favoriteMovies.filter((item) => item.id !== id);
+    setFavoriteMovies(deleteFavorites);
+    console.log(deleteFavorites);
   };
 
   return (
@@ -75,12 +86,21 @@ const About = ({ isShowLoader, setIsShowLoader, setFavoriteMovies }) => {
                   <span>{movie.rating?.average}</span>
                 </div>
               </div>
-              <button
-                className="add-favorites-btn"
-                onClick={handleAddFavorites}
-              >
-                ADD TO FAVORITES
-              </button>
+              {isFavorites(movie.id) ? (
+                <button
+                  className="add-favorites-none"
+                  onClick={() => handleDeleteFavorites(movie.id)}
+                >
+                  REMOVE FROM FAVORITES
+                </button>
+              ) : (
+                <button
+                  className="add-favorites-btn"
+                  onClick={handleAddFavorites}
+                >
+                  ADD TO FAVORITES
+                </button>
+              )}
             </div>
             <span
               className="movie-summary"

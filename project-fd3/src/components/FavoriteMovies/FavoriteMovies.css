@@ -1,0 +1,21 @@
+@import url(../../index.css);
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 210px);
+  justify-content: space-between;
+  gap: 20px;
+  grid-row-gap: 40px;
+  padding-inline: 0 20px;
+  list-style-type: none;
+}
+
+.favorites-container {
+  width: 100%;
+  padding: 0 10px 0 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow-left > span {
+  color: var(--citrine);
+}

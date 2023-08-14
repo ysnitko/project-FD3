@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import Movie from '../Movie/Movie';
-import FilterBar from '../FilterBar/FilterBar';
-import './MoviesList.css';
-import { Link } from 'react-router-dom';
-import Pagination from '../Pagination/Pagination';
-import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
+import React, { useEffect, useState } from "react";
+import Movie from "../Movie/Movie";
+import FilterBar from "../FilterBar/FilterBar";
+import "./MoviesList.css";
+import { Link } from "react-router-dom";
+import Pagination from "../Pagination/Pagination";
+import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
 
 const MoviesList = ({
   setIsShowLoader,
   isShowLoader,
   renderList,
   setRenderedList,
+  isSearch,
 }) => {
-  console.log('rendering MoviesList');
+  console.log("rendering MoviesList");
   const [movieList, setMovieList] = useState([]);
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -26,9 +27,10 @@ const MoviesList = ({
       const result = await response.json();
       setIsShowLoader(false);
       setMovieList(result);
+      console.log(isFiltered);
     };
     fetchData();
-  }, [setIsShowLoader]);
+  }, [setIsShowLoader, isFiltered]);
 
   return (
     <div className="movies-container">
@@ -69,6 +71,7 @@ const MoviesList = ({
               setRenderedList={setRenderedList}
               movieList={movieList}
               updatedList={updatedList}
+              isSearch={isSearch}
             />
           </div>
         )}
