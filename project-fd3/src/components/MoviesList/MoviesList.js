@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Movie from "../Movie/Movie";
-import FilterBar from "../FilterBar/FilterBar";
-import "./MoviesList.css";
-import { Link } from "react-router-dom";
-import Pagination from "../Pagination/Pagination";
-import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
+import React, { useEffect, useState } from 'react';
+import Movie from '../Movie/Movie';
+import FilterBar from '../FilterBar/FilterBar';
+import './MoviesList.css';
+import { Link } from 'react-router-dom';
+import Pagination from '../Pagination/Pagination';
+import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
 const MoviesList = ({
   setIsShowLoader,
@@ -12,9 +12,11 @@ const MoviesList = ({
   renderList,
   setRenderedList,
   isSearch,
+  movieList,
+  setMovieList,
 }) => {
-  console.log("rendering MoviesList");
-  const [movieList, setMovieList] = useState([]);
+  console.log('rendering MoviesList');
+
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,10 +29,9 @@ const MoviesList = ({
       const result = await response.json();
       setIsShowLoader(false);
       setMovieList(result);
-      console.log(isFiltered);
     };
     fetchData();
-  }, [setIsShowLoader, isFiltered]);
+  }, [setIsShowLoader, isFiltered, setMovieList]);
 
   return (
     <div className="movies-container">

@@ -8,7 +8,7 @@ const Header = ({
   navigateMovies,
   setSearchMovies,
   navigateSearch,
-  renderList,
+  movieList,
 }) => {
   console.log('render Header');
 
@@ -18,10 +18,10 @@ const Header = ({
     event.preventDefault();
     const searchRefValue = searchRef.current.value;
     if (searchRef.current && searchRefValue !== '') {
-      const filtered = renderList.filter((item) =>
+      const filtered = movieList.filter((item) =>
         item.name.toLowerCase().includes(searchRefValue.toLowerCase())
       );
-      console.log(filtered);
+      console.log(movieList);
       setSearchMovies(filtered);
       navigateSearch();
     } else {

@@ -15,6 +15,7 @@ const App = () => {
   const [renderList, setRenderedList] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
+  const [movieList, setMovieList] = useState([]);
 
   const navigate = useNavigate();
 
@@ -37,7 +38,7 @@ const App = () => {
   return (
     <div className="container">
       <Header
-        renderList={renderList}
+        movieList={movieList}
         setRenderedList={setRenderedList}
         navigateSearch={navigateSearch}
         setSearchMovies={setSearchMovies}
@@ -60,6 +61,8 @@ const App = () => {
             path="/movies"
             element={
               <MoviesList
+                movieList={movieList}
+                setMovieList={setMovieList}
                 renderList={renderList}
                 setRenderedList={setRenderedList}
                 isShowLoader={isShowLoader}
