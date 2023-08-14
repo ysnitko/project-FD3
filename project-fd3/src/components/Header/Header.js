@@ -21,7 +21,6 @@ const Header = ({
       const filtered = movieList.filter((item) =>
         item.name.toLowerCase().includes(searchRefValue.toLowerCase())
       );
-      console.log(movieList);
       setSearchMovies(filtered);
       navigateSearch();
     } else {

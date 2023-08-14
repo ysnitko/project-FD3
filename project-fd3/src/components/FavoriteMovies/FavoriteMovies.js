@@ -8,10 +8,15 @@ const FavoriteMovies = ({ favoriteMovies }) => {
   console.log('rendering FavoriteMovies');
   return (
     <div className="favorites-container">
-      <span className="upcoming-movies">Manage your favorite movies</span>
       <Link className="previouse-page" to={`/movies`}>
         <img src={Arrow} alt="arrow-left" /> <span>Back</span>
       </Link>
+      {favoriteMovies.length > 0 ? (
+        <span className="upcoming-movies">Manage your favorite movies</span>
+      ) : (
+        <span className="upcoming-movies">No favorite movies</span>
+      )}
+
       <div>
         <ul className="movies-list">
           {favoriteMovies.map((movie) => (

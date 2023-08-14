@@ -4,6 +4,7 @@ import Movie from '../Movie/Movie';
 import Arrow from '../../helpers/img/Arrow.svg';
 
 const Search = ({ searchMovies }) => {
+  console.log('rendering search');
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies`}>
@@ -39,4 +40,4 @@ const Search = ({ searchMovies }) => {
   );
 };
 
-export default Search;
+export default React.memo(Search);
