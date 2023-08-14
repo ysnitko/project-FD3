@@ -1,30 +1,31 @@
-import React, { useState, useRef } from "react";
-import { Link } from "react-router-dom";
-import "./Header.css";
-import logoSvg from "../../helpers/img/logo.svg";
-import langSvg from "../../helpers/img/lang.svg";
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import './Header.css';
+import logoSvg from '../../helpers/img/logo.svg';
+import langSvg from '../../helpers/img/lang.svg';
 
-const Header = ({ setRenderedList, renderList }) => {
-  console.log("render Header");
-  const [searchValue, setSearchValue] = useState("");
+const Header = ({
+  navigateMovies,
+  setSearchMovies,
+  navigateSearch,
+  renderList,
+}) => {
+  console.log('render Header');
 
-  let searchRef = useRef(null);
+  const searchRef = useRef(null);
 
   const searchMovies = (event) => {
     event.preventDefault();
-    if (searchRef) {
-      searchRef = event.target.value;
-      setSearchValue(searchRef);
-    }
-
-    const filtered = renderList.filter((movie) =>
-      movie.name.toLowerCase().includes(searchValue.toLocaleLowerCase())
-    );
-    setRenderedList(filtered);
-
-    if (searchRef === "") {
-      setRenderedList((prev) => [...prev]);
-      console.log(renderList);
+    const searchRefValue = searchRef.current.value;
+    if (searchRef.current && searchRefValue !== '') {
+      const filtered = renderList.filter((item) =>
+        item.name.toLowerCase().includes(searchRefValue.toLowerCase())
+      );
+      console.log(filtered);
+      setSearchMovies(filtered);
+      navigateSearch();
+    } else {
+      navigateMovies();
     }
   };
 
@@ -42,7 +43,6 @@ const Header = ({ setRenderedList, renderList }) => {
           name=""
           defaultValue=""
           placeholder="search..."
-          // onChange={searchMovies}
         />
       </form>
 
@@ -63,5 +63,4 @@ const Header = ({ setRenderedList, renderList }) => {
     </div>
   );
 };
-
 export default React.memo(Header);

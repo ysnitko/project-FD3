@@ -1,36 +1,48 @@
-import React, { useState } from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
-import LeftAside from "./components/LeftAside/LeftAside";
-import Home from "./components/Home/Home";
-import MoviesList from "./components/MoviesList/MoviesList";
-import About from "./components/About/About";
-import FavoriteMovies from "./components/FavoriteMovies/FavoriteMovies";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import LeftAside from './components/LeftAside/LeftAside';
+import Home from './components/Home/Home';
+import MoviesList from './components/MoviesList/MoviesList';
+import About from './components/About/About';
+import FavoriteMovies from './components/FavoriteMovies/FavoriteMovies';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import Search from './components/Search/Search';
 
 const App = () => {
-  console.log("render App");
+  console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
+  const [searchMovies, setSearchMovies] = useState([]);
 
   const navigate = useNavigate();
 
   const navigateHome = () => {
-    navigate("/");
+    navigate('/');
   };
 
   const navigateMovies = () => {
-    navigate("/movies");
+    navigate('/movies');
   };
 
   const navigateFavorites = () => {
-    navigate("/favorites");
+    navigate('/favorites');
+  };
+
+  const navigateSearch = () => {
+    navigate('/search');
   };
 
   return (
     <div className="container">
-      <Header renderList={renderList} setRenderedList={setRenderedList} />
+      <Header
+        renderList={renderList}
+        setRenderedList={setRenderedList}
+        navigateSearch={navigateSearch}
+        setSearchMovies={setSearchMovies}
+        navigateMovies={navigateMovies}
+      />
       <div className="main-block">
         <LeftAside
           navigateHome={navigateHome}
@@ -59,6 +71,11 @@ const App = () => {
             exact
             path="/favorites"
             element={<FavoriteMovies favoriteMovies={favoriteMovies} />}
+          />
+          <Route
+            exact
+            path="/search"
+            element={<Search searchMovies={searchMovies} />}
           />
           <Route
             path="/movies/about/:id"
