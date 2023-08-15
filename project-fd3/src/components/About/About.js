@@ -11,6 +11,7 @@ const About = ({
   setIsShowLoader,
   setFavoriteMovies,
   favoriteMovies,
+  navigateMovies,
 }) => {
   console.log("render About");
   const [movie, setMovie] = useState([]);
@@ -44,12 +45,11 @@ const About = ({
   const handleDeleteFavorites = (id) => {
     const deleteFavorites = favoriteMovies.filter((item) => item.id !== id);
     setFavoriteMovies(deleteFavorites);
-    console.log(deleteFavorites);
   };
 
   return (
     <div className="about-container">
-      <Link className="previouse-page" to={`/movies`}>
+      <Link className="previouse-page" to={`/movies/All/1`}>
         <img src={Arrow} alt="arrow-left" /> <span>Back</span>
       </Link>
       {isShowLoader ? (

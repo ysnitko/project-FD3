@@ -1,12 +1,5 @@
-.container {
-}
-
 .main-block {
   display: flex;
-  /* height: 100vh; */
   flex-direction: row;
   width: 100%;
-}
-
-#root {
 }

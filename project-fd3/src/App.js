@@ -1,38 +1,41 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header/Header';
-import LeftAside from './components/LeftAside/LeftAside';
-import Home from './components/Home/Home';
-import MoviesList from './components/MoviesList/MoviesList';
-import About from './components/About/About';
-import FavoriteMovies from './components/FavoriteMovies/FavoriteMovies';
-import { Routes, Route, useNavigate } from 'react-router-dom';
-import Search from './components/Search/Search';
+import React, { useState } from "react";
+import "./App.css";
+import Header from "./components/Header/Header";
+import LeftAside from "./components/LeftAside/LeftAside";
+import { useNavigate } from "react-router-dom";
+import PageRouter from "./routes/PageRouter";
 
 const App = () => {
-  console.log('render App');
+  console.log("render App");
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
   const [movieList, setMovieList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [currentCategory, setCategory] = useState(["All"]);
 
   const navigate = useNavigate();
 
   const navigateHome = () => {
-    navigate('/');
+    setCategory("All");
+    setCurrentPage(1);
+    navigate("/");
   };
 
-  const navigateMovies = () => {
-    navigate('/movies');
+  const navigateMovies = (category, page) => {
+    if (typeof category !== `string`) {
+      category = "All";
+    }
+    navigate(`/movies/${category}/${page}`);
   };
 
   const navigateFavorites = () => {
-    navigate('/favorites');
+    navigate("/favorites");
   };
 
   const navigateSearch = () => {
-    navigate('/search');
+    navigate("/search");
   };
 
   return (
@@ -50,48 +53,22 @@ const App = () => {
           navigateFavorites={navigateFavorites}
           favoriteMovies={favoriteMovies}
         />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<Home navigateMovies={navigateMovies} />}
-          />
-          <Route
-            exact
-            path="/movies"
-            element={
-              <MoviesList
-                movieList={movieList}
-                setMovieList={setMovieList}
-                renderList={renderList}
-                setRenderedList={setRenderedList}
-                isShowLoader={isShowLoader}
-                setIsShowLoader={setIsShowLoader}
-              />
-            }
-          />
-          <Route
-            exact
-            path="/favorites"
-            element={<FavoriteMovies favoriteMovies={favoriteMovies} />}
-          />
-          <Route
-            exact
-            path="/search"
-            element={<Search searchMovies={searchMovies} />}
-          />
-          <Route
-            path="/movies/about/:id"
-            element={
-              <About
-                isShowLoader={isShowLoader}
-                setIsShowLoader={setIsShowLoader}
-                setFavoriteMovies={setFavoriteMovies}
-                favoriteMovies={favoriteMovies}
-              />
-            }
-          />
-        </Routes>
+        <PageRouter
+          setCategory={setCategory}
+          movieList={movieList}
+          renderList={renderList}
+          setRenderedList={setRenderedList}
+          isShowLoader={isShowLoader}
+          setIsShowLoader={setIsShowLoader}
+          favoriteMovies={favoriteMovies}
+          setFavoriteMovies={setFavoriteMovies}
+          navigateMovies={navigateMovies}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          searchMovies={searchMovies}
+          setMovieList={setMovieList}
+          currentCategory={currentCategory}
+        />
       </div>
     </div>
   );

@@ -1,20 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Movie from '../Movie/Movie';
-import './FavoriteMovies.css';
-import Arrow from '../../helpers/img/Arrow.svg';
+import React from "react";
+import { Link } from "react-router-dom";
+import Movie from "../Movie/Movie";
+import "./FavoriteMovies.css";
+import Arrow from "../../helpers/img/Arrow.svg";
 
 const FavoriteMovies = ({ favoriteMovies }) => {
-  console.log('rendering FavoriteMovies');
+  console.log("rendering FavoriteMovies");
   return (
     <div className="favorites-container">
-      <Link className="previouse-page" to={`/movies`}>
+      <Link className="previouse-page" to={`/movies/All/1`}>
         <img src={Arrow} alt="arrow-left" /> <span>Back</span>
       </Link>
       {favoriteMovies.length > 0 ? (
-        <span className="upcoming-movies">Manage your favorite movies</span>
+        <span className="favorites-movies">Manage your favorite movies</span>
       ) : (
-        <span className="upcoming-movies">No favorite movies</span>
+        <span className="favorites-movies">No favorite movies</span>
       )}
 
       <div>

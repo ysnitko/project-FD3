@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import './Header.css';
-import logoSvg from '../../helpers/img/logo.svg';
-import langSvg from '../../helpers/img/lang.svg';
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
+import logoSvg from "../../helpers/img/logo.svg";
+import langSvg from "../../helpers/img/lang.svg";
 
 const Header = ({
   navigateMovies,
@@ -10,14 +10,14 @@ const Header = ({
   navigateSearch,
   movieList,
 }) => {
-  console.log('render Header');
+  console.log("render Header");
 
   const searchRef = useRef(null);
 
   const searchMovies = (event) => {
     event.preventDefault();
-    const searchRefValue = searchRef.current.value;
-    if (searchRef.current && searchRefValue !== '') {
+    let searchRefValue = searchRef.current.value;
+    if (searchRef.current && searchRefValue !== "") {
       const filtered = movieList.filter((item) =>
         item.name.toLowerCase().includes(searchRefValue.toLowerCase())
       );
@@ -26,6 +26,7 @@ const Header = ({
     } else {
       navigateMovies();
     }
+    searchRefValue = "";
   };
 
   return (

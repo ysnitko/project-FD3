@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 import calendarIcons from "../../helpers/img/calendar-icon.svg";
 
-const Home = ({ navigateMovies }) => {
+const Home = ({ navigateMovies, currentPage, currentCategory }) => {
   console.log("render Home");
   return (
     <div className="home-screen">
@@ -22,7 +22,11 @@ const Home = ({ navigateMovies }) => {
           <span>2023</span>
         </div>
       </div>
-      <button className="play-now" type="" onClick={navigateMovies}>
+      <button
+        className="play-now"
+        type=""
+        onClick={() => navigateMovies(currentCategory, currentPage)}
+      >
         SHOW NOW
       </button>
     </div>

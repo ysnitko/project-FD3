@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './FilterBar.css';
+import React, { useEffect, useState } from "react";
+import "./FilterBar.css";
 
 const FilterBar = ({
   movieList,
@@ -7,34 +7,39 @@ const FilterBar = ({
   setIsFiltered,
   isFiltered,
   setCurrentPage,
+  navigateMovies,
+  setCategory,
+  currentPage,
 }) => {
-  console.log('render FilterBar');
+  console.log("render FilterBar");
 
   const [filteredMovieList, setFilteredMovieList] = useState([]);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [setCurrentPage]);
+
   const handleSort = (event) => {
     const sortedList = isFiltered ? [...filteredMovieList] : [...movieList];
-    console.log(movieList);
-    console.log(isFiltered);
-    if (event.target.value === 'by-title') {
+    if (event.target.value === "by-title") {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? -1 : 1;
       });
     }
 
-    if (event.target.value === 'by-title-reverse') {
+    if (event.target.value === "by-title-reverse") {
       sortedList.sort((a, b) => {
         return a.name.toLowerCase() < b.name.toLowerCase() ? 1 : -1;
       });
     }
 
-    if (event.target.value === 'by-rating-start') {
+    if (event.target.value === "by-rating-start") {
       sortedList.sort((a, b) => {
         return a.rating.average > b.rating.average ? 1 : -1;
       });
     }
 
-    if (event.target.value === 'by-rating-end') {
+    if (event.target.value === "by-rating-end") {
       sortedList.sort((a, b) => {
         return a.rating.average > b.rating.average ? -1 : 1;
       });
@@ -45,19 +50,22 @@ const FilterBar = ({
   };
 
   const handleChooseCategory = (event) => {
-    let category = event.target.value;
+    let selectedCategory = event.target.value;
     let filteredList = movieList.filter((movie) =>
-      movie.genres.includes(category)
+      movie.genres.includes(selectedCategory)
     );
 
-    if (category === 'All') {
+    if (selectedCategory === "All") {
       filteredList = [...movieList];
       setFilteredMovieList(movieList);
     }
+
+    setCategory(selectedCategory);
+    setCurrentPage(1);
+    navigateMovies(selectedCategory, (currentPage = 1));
     setIsFiltered(true);
     setUpdatedList(filteredList);
     setFilteredMovieList(filteredList);
-    setCurrentPage(1);
   };
 
   return (
@@ -68,7 +76,7 @@ const FilterBar = ({
       </div>
       <div className="filters">
         <div className="category-select">
-          <span>choose category:</span>
+          <span>category:</span>
           <select onChange={handleChooseCategory}>
             <option value="All">All</option>
             <option value="Action">Action</option>

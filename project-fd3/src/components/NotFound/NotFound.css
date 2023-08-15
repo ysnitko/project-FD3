@@ -1,0 +1,14 @@
+@import url(../../index.css);
+
+.notfound-container {
+  width: 100%;
+  padding: 0 10px 0 20px;
+}
+
+.notfound-text {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: var(--fs-1);
+  color: var(--white);
+}

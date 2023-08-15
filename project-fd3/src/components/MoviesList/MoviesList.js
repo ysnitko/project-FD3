@@ -1,25 +1,28 @@
-import React, { useEffect, useState } from 'react';
-import Movie from '../Movie/Movie';
-import FilterBar from '../FilterBar/FilterBar';
-import './MoviesList.css';
-import { Link } from 'react-router-dom';
-import Pagination from '../Pagination/Pagination';
-import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
+import React, { useEffect, useState } from "react";
+import Movie from "../Movie/Movie";
+import FilterBar from "../FilterBar/FilterBar";
+import "./MoviesList.css";
+import { Link } from "react-router-dom";
+import Pagination from "../Pagination/Pagination";
+import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
 
 const MoviesList = ({
   setIsShowLoader,
   isShowLoader,
   renderList,
   setRenderedList,
-  isSearch,
   movieList,
   setMovieList,
+  navigateMovies,
+  setCurrentPage,
+  currentPage,
+  setCategory,
+  currentCategory,
 }) => {
-  console.log('rendering MoviesList');
+  console.log("rendering MoviesList");
 
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,11 +40,14 @@ const MoviesList = ({
     <div className="movies-container">
       <div>
         <FilterBar
+          currentPage={currentPage}
+          setCategory={setCategory}
           setCurrentPage={setCurrentPage}
           setIsFiltered={setIsFiltered}
           isFiltered={isFiltered}
           setUpdatedList={setUpdatedList}
           movieList={movieList}
+          navigateMovies={navigateMovies}
         />
         {isShowLoader ? (
           <LoadinSpinner />
@@ -66,13 +72,14 @@ const MoviesList = ({
               ))}
             </ul>
             <Pagination
+              currentCategory={currentCategory}
+              navigateMovies={navigateMovies}
               currentPage={currentPage}
               setCurrentPage={setCurrentPage}
               isFiltered={isFiltered}
               setRenderedList={setRenderedList}
               movieList={movieList}
               updatedList={updatedList}
-              isSearch={isSearch}
             />
           </div>
         )}
@@ -81,4 +88,4 @@ const MoviesList = ({
   );
 };
 
-export default MoviesList;
+export default React.memo(MoviesList);

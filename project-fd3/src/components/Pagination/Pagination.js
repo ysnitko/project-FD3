@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import './Pagination.css';
+import React, { useEffect } from "react";
+import "./Pagination.css";
 
 const Pagination = ({
   movieList,
@@ -8,8 +8,10 @@ const Pagination = ({
   isFiltered,
   setCurrentPage,
   currentPage,
+  currentCategory,
+  navigateMovies,
 }) => {
-  console.log('rendering Pagination');
+  console.log("rendering Pagination");
   const perPage = 15;
 
   useEffect(() => {
@@ -25,8 +27,9 @@ const Pagination = ({
     setCurrentPage(1);
   }, [setCurrentPage]);
 
-  const handlePageChange = (page) => {
+  const handlePageChange = (currentCategory, page) => {
     setCurrentPage(page);
+    navigateMovies(currentCategory, page);
   };
 
   const numPages = isFiltered
@@ -39,9 +42,9 @@ const Pagination = ({
         <button
           key={index + 1}
           className={`pagination-btn ${
-            currentPage === index + 1 ? 'active-btn' : ''
+            currentPage === index + 1 ? "active-btn" : ""
           }`}
-          onClick={() => handlePageChange(index + 1)}
+          onClick={() => handlePageChange(currentCategory, index + 1)}
         >
           {index + 1}
         </button>

@@ -1,13 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Movie from '../Movie/Movie';
-import Arrow from '../../helpers/img/Arrow.svg';
+import React from "react";
+import { Link } from "react-router-dom";
+import Movie from "../Movie/Movie";
+import Arrow from "../../helpers/img/Arrow.svg";
 
 const Search = ({ searchMovies }) => {
-  console.log('rendering search');
+  console.log("rendering search");
   return (
     <div className="favorites-container">
-      <Link className="previouse-page" to={`/movies`}>
+      <Link className="previouse-page" to={`/movies/All/1`}>
         <img src={Arrow} alt="arrow-left" /> <span>Back</span>
       </Link>
       {searchMovies.length > 0 ? (
