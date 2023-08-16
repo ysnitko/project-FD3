@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/project-streaming/static/css/main.5ea765b7.css",
+    "main.js": "/project-streaming/static/js/main.725eddf2.js",
+    "static/media/the-mandalorian2.jpg": "/project-streaming/static/media/the-mandalorian2.060daa374c69150f7abd.jpg",
+    "static/media/logo.svg": "/project-streaming/static/media/logo.1fd5b78eea5e7dec545e810b617bdf18.svg",
+    "static/media/lang.svg": "/project-streaming/static/media/lang.f8d8bb9d66108681c7156884f1b266e4.svg",
+    "static/media/calendar-icon.svg": "/project-streaming/static/media/calendar-icon.d661ddf887f0f15fb216947f3d2967cc.svg",
+    "static/media/share.svg": "/project-streaming/static/media/share.334533c9e513dd6fdbf0.svg",
+    "index.html": "/project-streaming/index.html",
+    "static/media/watch-time.svg": "/project-streaming/static/media/watch-time.f7c5a3f1383f839150bbaf68f57269d7.svg",
+    "static/media/Arrow.svg": "/project-streaming/static/media/Arrow.34029edc7c1dee6b62309640f39b20e5.svg",
+    "static/media/home.svg": "/project-streaming/static/media/home.44188adeea6fb3262bc2.svg",
+    "static/media/favourite-add.svg": "/project-streaming/static/media/favourite-add.0037e810c7fe74bf30c6.svg",
+    "static/media/favourite-none.svg": "/project-streaming/static/media/favourite-none.902d67226a22f56af6f4.svg",
+    "static/media/Star_favotites_block.svg": "/project-streaming/static/media/Star_favotites_block.416a70871a00c85176b54f237d1f5399.svg",
+    "static/media/rating.svg": "/project-streaming/static/media/rating.8d0cb9890a0a332bb5c93b1efb86aa3b.svg",
+    "main.5ea765b7.css.map": "/project-streaming/static/css/main.5ea765b7.css.map",
+    "main.725eddf2.js.map": "/project-streaming/static/js/main.725eddf2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ea765b7.css",
+    "static/js/main.725eddf2.js"
+  ]
+}
