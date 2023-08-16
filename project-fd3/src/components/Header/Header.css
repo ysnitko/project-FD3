@@ -62,3 +62,26 @@ form .search {
   border: none;
   outline: none;
 }
+
+@media screen and (max-width: 850px) {
+  .logo > span {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 649px) {
+  .sign-btn {
+    padding: 2px 8px;
+    font-size: var(--fs-11);
+  }
+
+  .langusges-select select {
+    font-size: var(--fs-11);
+    gap: 2px;
+  }
+
+  form .search {
+    padding: 2px 8px;
+    font-size: var(--fs-11);
+  }
+}

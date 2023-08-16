@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./App.css";
 import Header from "./components/Header/Header";
 import LeftAside from "./components/LeftAside/LeftAside";
@@ -23,12 +23,15 @@ const App = () => {
     navigate("/");
   };
 
-  const navigateMovies = (category, page) => {
-    if (typeof category !== `string`) {
-      category = "All";
-    }
-    navigate(`/movies/${category}/${page}`);
-  };
+  const navigateMovies = useCallback(
+    (category, page) => {
+      if (typeof category !== `string`) {
+        category = "All";
+      }
+      navigate(`/movies/${category}/${page}`);
+    },
+    [navigate]
+  );
 
   const navigateFavorites = () => {
     navigate("/favorites");

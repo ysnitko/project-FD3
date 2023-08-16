@@ -33,3 +33,12 @@
 .favorites-add-btn {
   background-image: url(../../helpers/img/favourite-add.svg);
 }
+
+@media screen and (min-width: 320px) and (max-width: 649px) {
+  .left-navigation {
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 15px;
+  }
+}

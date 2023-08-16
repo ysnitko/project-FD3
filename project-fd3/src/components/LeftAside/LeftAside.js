@@ -1,8 +1,8 @@
-import React from 'react';
-import './LeftAside.css';
+import React from "react";
+import "./LeftAside.css";
 
 const LeftAside = ({ navigateHome, navigateFavorites, favoriteMovies }) => {
-  console.log('render LeftAside');
+  console.log("render LeftAside");
 
   return (
     <div className="left-navigation">

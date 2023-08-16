@@ -11,7 +11,6 @@ const About = ({
   setIsShowLoader,
   setFavoriteMovies,
   favoriteMovies,
-  navigateMovies,
 }) => {
   console.log("render About");
   const [movie, setMovie] = useState([]);
@@ -56,11 +55,15 @@ const About = ({
         <LoadinSpinner />
       ) : (
         <div className="movie-container">
-          <img
-            className="show-cover"
-            src={movie.image?.original}
-            alt="movie-covers"
-          />
+          <picture>
+            <source media="(max-width: 850px)" srcSet={movie.image?.medium} />
+            <img
+              className="show-cover"
+              src={movie.image?.original}
+              alt="movie-covers"
+            />
+          </picture>
+
           <div className="movie-information">
             <span className="new-episode active"> NEW EPISODES </span>
             <span className="show-name"> {movie.name},</span>

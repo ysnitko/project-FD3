@@ -69,7 +69,6 @@ const PagesRouter = ({
         path="/movies/about/:id"
         element={
           <About
-            navigateMovies={navigateMovies}
             isShowLoader={isShowLoader}
             setIsShowLoader={setIsShowLoader}
             setFavoriteMovies={setFavoriteMovies}

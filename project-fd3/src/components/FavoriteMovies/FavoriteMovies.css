@@ -27,3 +27,20 @@
   font-size: var(--fs-1);
   color: var(--white);
 }
+
+@media screen and (min-width: 650px) and (max-width: 850px) {
+  .movies-list {
+    justify-content: space-evenly;
+  }
+
+  .upcoming-movies {
+    font-size: var(--fs-4);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 649px) {
+  .movies-list {
+    justify-content: center;
+    align-items: center;
+  }
+}

@@ -4,7 +4,7 @@ import Movie from "../Movie/Movie";
 import Arrow from "../../helpers/img/Arrow.svg";
 
 const Search = ({ searchMovies }) => {
-  console.log("rendering search");
+  console.log("rendering Search");
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>

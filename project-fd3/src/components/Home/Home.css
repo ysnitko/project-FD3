@@ -88,3 +88,13 @@
   margin-top: 2px;
   font-size: var(--fs-16);
 }
+
+@media screen and (min-width: 320px) and (max-width: 649px) {
+  .Unlimited,
+  .Movies {
+    font-size: var(--fs-1);
+  }
+  .home-screen {
+    padding-left: 20px;
+  }
+}
