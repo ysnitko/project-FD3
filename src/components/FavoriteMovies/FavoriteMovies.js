@@ -4,17 +4,19 @@ import Movie from "../Movie/Movie";
 import "./FavoriteMovies.css";
 import Arrow from "../../helpers/img/Arrow.svg";
 
-const FavoriteMovies = ({ favoriteMovies }) => {
+const FavoriteMovies = ({ favoriteMovies, t }) => {
   console.log("rendering FavoriteMovies");
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>Back</span>
+        <img src={Arrow} alt="arrow-left" /> <span>{t("Back")}</span>
       </Link>
       {favoriteMovies.length > 0 ? (
-        <span className="favorites-movies">Manage your favorite movies</span>
+        <span className="favorites-movies">
+          {t("Manage your favorite movies")}
+        </span>
       ) : (
-        <span className="favorites-movies">No favorite movies</span>
+        <span className="favorites-movies"> {t("No favorite movies")}</span>
       )}
 
       <div>

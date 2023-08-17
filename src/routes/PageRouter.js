@@ -22,6 +22,7 @@ const PagesRouter = ({
   setMovieList,
   currentCategory,
   setCategory,
+  t,
 }) => {
   return (
     <Routes>
@@ -30,6 +31,7 @@ const PagesRouter = ({
         path="/"
         element={
           <Home
+            t={t}
             navigateMovies={navigateMovies}
             currentPage={currentPage}
             currentCategory={currentCategory}
@@ -41,6 +43,7 @@ const PagesRouter = ({
         path="/movies/:category/:page"
         element={
           <MoviesList
+            t={t}
             setCategory={setCategory}
             currentCategory={currentCategory}
             movieList={movieList}
@@ -58,17 +61,18 @@ const PagesRouter = ({
       <Route
         exact
         path="/favorites"
-        element={<FavoriteMovies favoriteMovies={favoriteMovies} />}
+        element={<FavoriteMovies favoriteMovies={favoriteMovies} t={t} />}
       />
       <Route
         exact
         path="/search"
-        element={<Search searchMovies={searchMovies} />}
+        element={<Search searchMovies={searchMovies} t={t} />}
       />
       <Route
         path="/movies/about/:id"
         element={
           <About
+            t={t}
             isShowLoader={isShowLoader}
             setIsShowLoader={setIsShowLoader}
             setFavoriteMovies={setFavoriteMovies}

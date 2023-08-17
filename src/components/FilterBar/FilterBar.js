@@ -10,6 +10,7 @@ const FilterBar = ({
   navigateMovies,
   setCategory,
   currentPage,
+  t,
 }) => {
   console.log("render FilterBar");
 
@@ -71,35 +72,34 @@ const FilterBar = ({
   return (
     <div className="filter-block">
       <div className="block-title">
-        <span className="online-streaming">ONLINE STREAMING</span>
-        <span className="upcoming-movies">Upcoming Movies</span>
+        <span className="online-streaming">{t("ONLINE STREAMING")}</span>
+        <span className="upcoming-movies">{t("Upcoming Movies")}</span>
       </div>
       <div className="filters">
         <div className="category-select">
-          <span>category:</span>
+          <span>{t("category")}:</span>
           <select onChange={handleChooseCategory}>
-            <option value="All">All</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Crime">Crime</option>
-            <option value="Drama">Drama</option>
-            <option value="Espionage">Espionage</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Horror">Horror</option>
-            <option value="Music">Music</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Romance">Romance</option>
-            <option value="Supernatural">Supernatural</option>
-            <option value="Thriller">Thriller</option>
+            <option value="All">{t("All")}</option>
+            <option value="Action">{t("Action")}</option>
+            <option value="Crime">{t("Crime")}</option>
+            <option value="Drama">{t("Drama")}</option>
+            <option value="Espionage">{t("Espionage")}</option>
+            <option value="Fantasy">{t("Fantasy")}</option>
+            <option value="Horror">{t("Horror")}</option>
+            <option value="Music">{t("Music")}</option>
+            <option value="Mystery">{t("Mystery")}</option>
+            <option value="Romance">{t("Romance")}</option>
+            <option value="Supernatural">{t("Supernatural")}</option>
+            <option value="Thriller">{t("Thriller")}</option>
           </select>
         </div>
         <div className="sort-select">
-          <span>sort by:</span>
+          <span>{t("sort by")}:</span>
           <select onChange={handleSort}>
-            <option value="by-title">title A-Z</option>
-            <option value="by-title-reverse">title Z-A</option>
-            <option value="by-rating-start">Rating 0-9</option>
-            <option value="by-rating-end">Rating 9-0</option>
+            <option value="by-title">{t("title A-Z")}</option>
+            <option value="by-title-reverse">{t("title Z-A")}</option>
+            <option value="by-rating-start">{t("Rating")} 0-9</option>
+            <option value="by-rating-end">{t("Rating")} 9-0</option>
           </select>
         </div>
       </div>

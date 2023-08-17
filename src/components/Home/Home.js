@@ -2,21 +2,22 @@ import React from "react";
 import "./Home.css";
 import calendarIcons from "../../helpers/img/calendar-icon.svg";
 
-const Home = ({ navigateMovies, currentPage, currentCategory }) => {
+const Home = ({ navigateMovies, currentPage, currentCategory, t }) => {
   console.log("render Home");
   return (
     <div className="home-screen">
       <div className="title">
         <span className="Filmagnet">Filmagnet</span>
         <span className="Unlimited">
-          Unlimited <span className="Entertainment">Entertainment</span>
+          {t("Unlimited")}
+          <span className="Entertainment">{t("Entertainment")}</span>
         </span>
-        <span className="Movies">Movies, TVs shows, & More.</span>
+        <span className="Movies">{t("Movies, TVs shows, & More.")}</span>
       </div>
       <div className="movie-info-row">
         <span className="movie-lbl">Movie</span>
         <span className="hd-lbl">HD</span>
-        <span className="category-movie">Acrion, Drama</span>
+        <span className="category-movie">{t("Action, Drama")}</span>
         <div className="date-realese">
           <img src={calendarIcons} alt="calendar" />
           <span>2023</span>
@@ -27,7 +28,7 @@ const Home = ({ navigateMovies, currentPage, currentCategory }) => {
         type=""
         onClick={() => navigateMovies(currentCategory, currentPage)}
       >
-        SHOW NOW
+        {t("SHOW NOW")}
       </button>
     </div>
   );

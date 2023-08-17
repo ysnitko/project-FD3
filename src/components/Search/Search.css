@@ -1,0 +1,8 @@
+@import url(../../index.css);
+.search-movies {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: var(--fs-1);
+  color: var(--white);
+}

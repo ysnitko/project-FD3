@@ -18,6 +18,7 @@ const MoviesList = ({
   currentPage,
   setCategory,
   currentCategory,
+  t,
 }) => {
   console.log("rendering MoviesList");
 
@@ -48,6 +49,7 @@ const MoviesList = ({
           setUpdatedList={setUpdatedList}
           movieList={movieList}
           navigateMovies={navigateMovies}
+          t={t}
         />
         {isShowLoader ? (
           <LoadinSpinner />

@@ -9,6 +9,8 @@ const Header = ({
   setSearchMovies,
   navigateSearch,
   movieList,
+  changeLanguage,
+  t,
 }) => {
   console.log("render Header");
 
@@ -49,15 +51,13 @@ const Header = ({
       <div className="sign-lang-section">
         <div className="langusges-select">
           <img src={langSvg} alt="languages" />
-          <select>
-            <option value="En">En</option>
-            <option value="Ru">Ru</option>
-            <option value="Au">Au</option>
-            <option value="Sp">Sp</option>
+          <select onChange={changeLanguage}>
+            <option value="en">{t("En")}</option>
+            <option value="ru">{t("Ru")}</option>
           </select>
         </div>
         <button className="sign-btn" type="button">
-          SIGN IN
+          {t("SIGN IN")}
         </button>
       </div>
     </div>

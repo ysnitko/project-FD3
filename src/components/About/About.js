@@ -11,6 +11,7 @@ const About = ({
   setIsShowLoader,
   setFavoriteMovies,
   favoriteMovies,
+  t,
 }) => {
   console.log("render About");
   const [movie, setMovie] = useState([]);
@@ -49,7 +50,7 @@ const About = ({
   return (
     <div className="about-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>Back</span>
+        <img src={Arrow} alt="arrow-left" /> <span> {t("Back")}</span>
       </Link>
       {isShowLoader ? (
         <LoadinSpinner />
@@ -65,7 +66,7 @@ const About = ({
           </picture>
 
           <div className="movie-information">
-            <span className="new-episode active"> NEW EPISODES </span>
+            <span className="new-episode active">{t("NEW EPISODES")}</span>
             <span className="show-name"> {movie.name},</span>
             <div className="movie-info-row">
               <span className="movie-lbl">Movie</span>
@@ -80,10 +81,10 @@ const About = ({
             <div className="favorites-block">
               <div className="share">
                 <button type="button"></button>
-                <span>Share</span>
+                <span>{t("Share")}</span>
               </div>
               <div className="rating-movie">
-                <span>Rate The Show</span>
+                <span>{t("Rate The Show")}</span>
                 <div className="rating-star">
                   <img src={Star_favotites_block} alt="star" />
                   <span>{movie.rating?.average}</span>
@@ -94,14 +95,14 @@ const About = ({
                   className="add-favorites-none"
                   onClick={() => handleDeleteFavorites(movie.id)}
                 >
-                  REMOVE FROM FAVORITES
+                  {t("REMOVE FROM FAVORITES")}
                 </button>
               ) : (
                 <button
                   className="add-favorites-btn"
                   onClick={handleAddFavorites}
                 >
-                  ADD TO FAVORITES
+                  {t("ADD TO FAVORITES")}
                 </button>
               )}
             </div>

@@ -2,18 +2,19 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Movie from "../Movie/Movie";
 import Arrow from "../../helpers/img/Arrow.svg";
+import "./Search.css";
 
-const Search = ({ searchMovies }) => {
+const Search = ({ searchMovies, t }) => {
   console.log("rendering Search");
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>Back</span>
+        <img src={Arrow} alt="arrow-left" /> <span>{t("Back")}</span>
       </Link>
       {searchMovies.length > 0 ? (
-        <span className="upcoming-movies">Searching results</span>
+        <span className="search-movies"> {t("Searching results")}</span>
       ) : (
-        <span className="upcoming-movies">Sorry...no results</span>
+        <span className="search-movies">{t("Oops...no results")} </span>
       )}
 
       <div>
