@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
-import calendarIcons from "../../helpers/img/calendar-icon.svg";
-import Star_favotites_block from "../../helpers/img/Star_favotites_block.svg";
-import { Link, useParams } from "react-router-dom";
-import "./About.css";
-import Arrow from "../../helpers/img/Arrow.svg";
-import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
+import React, { useEffect, useMemo, useState } from 'react';
+import calendarIcons from '../../helpers/img/calendar-icon.svg';
+import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
+import { Link, useParams } from 'react-router-dom';
+import './About.css';
+import Arrow from '../../helpers/img/Arrow.svg';
+import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
 
 const About = ({
   isShowLoader,
@@ -13,7 +13,7 @@ const About = ({
   favoriteMovies,
   t,
 }) => {
-  console.log("render About");
+  console.log('render About');
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
 
@@ -31,7 +31,7 @@ const About = ({
 
   const transformCategory = useMemo(() => {
     let categoryMovie = movie.genres?.map((item, index) =>
-      index === movie.genres.length - 1 ? item : item + ", "
+      index === movie.genres.length - 1 ? item : item + ', '
     );
     return categoryMovie;
   }, [movie.genres]);
@@ -50,7 +50,7 @@ const About = ({
   return (
     <div className="about-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span> {t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span> {t('Back')}</span>
       </Link>
       {isShowLoader ? (
         <LoadinSpinner />
@@ -66,7 +66,7 @@ const About = ({
           </picture>
 
           <div className="movie-information">
-            <span className="new-episode active">{t("NEW EPISODES")}</span>
+            <span className="new-episode active">{t('NEW EPISODES')}</span>
             <span className="show-name"> {movie.name},</span>
             <div className="movie-info-row">
               <span className="movie-lbl">Movie</span>
@@ -81,10 +81,10 @@ const About = ({
             <div className="favorites-block">
               <div className="share">
                 <button type="button"></button>
-                <span>{t("Share")}</span>
+                <span>{t('Share')}</span>
               </div>
               <div className="rating-movie">
-                <span>{t("Rate The Show")}</span>
+                <span>{t('Rate')}</span>
                 <div className="rating-star">
                   <img src={Star_favotites_block} alt="star" />
                   <span>{movie.rating?.average}</span>
@@ -95,14 +95,14 @@ const About = ({
                   className="add-favorites-none"
                   onClick={() => handleDeleteFavorites(movie.id)}
                 >
-                  {t("REMOVE FROM FAVORITES")}
+                  {t('REMOVE FROM FAVORITES')}
                 </button>
               ) : (
                 <button
                   className="add-favorites-btn"
                   onClick={handleAddFavorites}
                 >
-                  {t("ADD TO FAVORITES")}
+                  {t('ADD TO FAVORITES')}
                 </button>
               )}
             </div>

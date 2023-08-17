@@ -89,6 +89,17 @@
   font-size: var(--fs-16);
 }
 
+@media screen and (min-width: 650px) and (max-width: 850px) {
+  .Unlimited,
+  .Movies {
+    font-size: 42px;
+  }
+  .home-screen {
+    padding-left: 20px;
+  }
+}
+
+
 @media screen and (min-width: 320px) and (max-width: 649px) {
   .Unlimited,
   .Movies {
