@@ -1,39 +1,38 @@
-import React, { useCallback, useState } from "react";
-import "./App.css";
-import Header from "./components/Header/Header";
-import LeftAside from "./components/LeftAside/LeftAside";
-import { useNavigate } from "react-router-dom";
-import PageRouter from "./routes/PageRouter";
-import { useTranslation } from "react-i18next";
+import React, { useCallback, useState } from 'react';
+import './App.css';
+import Header from './components/Header/Header';
+import LeftAside from './components/LeftAside/LeftAside';
+import { useNavigate } from 'react-router-dom';
+import PageRouter from './routes/PageRouter';
+import { useTranslation } from 'react-i18next';
 
 const App = () => {
-  console.log("render App");
+  console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
   const [movieList, setMovieList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentCategory, setCategory] = useState(["All"]);
+  const [currentCategory, setCategory] = useState(['All']);
 
   const navigate = useNavigate();
 
   const { t, i18n } = useTranslation();
   const changeLanguage = (event) => {
-    // const lang = event.target.value;
     i18n.changeLanguage(event.target.value);
     console.log(event.target.value);
   };
   const navigateHome = () => {
-    setCategory("All");
+    setCategory('All');
     setCurrentPage(1);
-    navigate("/");
+    navigate('/');
   };
 
   const navigateMovies = useCallback(
     (category, page) => {
       if (typeof category !== `string`) {
-        category = "All";
+        category = 'All';
       }
       navigate(`/movies/${category}/${page}`);
     },
@@ -41,11 +40,11 @@ const App = () => {
   );
 
   const navigateFavorites = () => {
-    navigate("/favorites");
+    navigate('/favorites');
   };
 
   const navigateSearch = () => {
-    navigate("/search");
+    navigate('/search');
   };
 
   return (
