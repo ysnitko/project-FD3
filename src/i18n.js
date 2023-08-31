@@ -46,7 +46,7 @@ const resources = {
       Supernatural: 'Сверхестественное',
       Thriller: 'Триллер',
       category: 'категория',
-      'sort by': 'Сортировать по',
+      'sort by': 'сортировать по',
       'title A-Z': 'названию A-Я',
       'title Z-A': 'названию Я-А',
       Rating: 'рейтингу',
