@@ -4,7 +4,7 @@ import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
 import { Link, useParams } from 'react-router-dom';
 import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
-import LoadinSpinner from '../LoadingSpinner/LoadinSpinner';
+import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
 const About = ({
   isShowLoader,

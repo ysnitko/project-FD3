@@ -1,27 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import Movie from "../Movie/Movie";
-import "./FavoriteMovies.css";
-import Arrow from "../../helpers/img/Arrow.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Movie from '../../components/Movie/Movie';
+import Arrow from '../../helpers/img/Arrow.svg';
+import './Search.css';
 
-const FavoriteMovies = ({ favoriteMovies, t }) => {
-  console.log("rendering FavoriteMovies");
+const Search = ({ searchMovies, t }) => {
+  console.log('rendering Search');
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>{t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span>{t('Back')}</span>
       </Link>
-      {favoriteMovies.length > 0 ? (
-        <span className="favorites-movies">
-          {t("Manage your favorite movies")}
-        </span>
+      {searchMovies.length > 0 ? (
+        <span className="search-movies"> {t('Searching results')}</span>
       ) : (
-        <span className="favorites-movies"> {t("No favorite movies")}</span>
+        <span className="search-movies">{t('Oops...no results')} </span>
       )}
 
       <div>
         <ul className="movies-list">
-          {favoriteMovies.map((movie) => (
+          {searchMovies.map((movie) => (
             <Link
               className="movie-link"
               key={movie.id}
@@ -43,4 +41,4 @@ const FavoriteMovies = ({ favoriteMovies, t }) => {
   );
 };
 
-export default FavoriteMovies;
+export default React.memo(Search);

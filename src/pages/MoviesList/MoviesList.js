@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import Movie from "../Movie/Movie";
-import FilterBar from "../FilterBar/FilterBar";
-import "./MoviesList.css";
-import { Link } from "react-router-dom";
-import Pagination from "../Pagination/Pagination";
-import LoadinSpinner from "../LoadingSpinner/LoadinSpinner";
+import React, { useEffect, useState } from 'react';
+import Movie from '../../components/Movie/Movie';
+import FilterBar from '../../components/FilterBar/FilterBar';
+import './MoviesList.css';
+import { Link } from 'react-router-dom';
+import Pagination from '../../components/Pagination/Pagination';
+import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
 const MoviesList = ({
   setIsShowLoader,
@@ -20,7 +20,7 @@ const MoviesList = ({
   currentCategory,
   t,
 }) => {
-  console.log("rendering MoviesList");
+  console.log('rendering MoviesList');
 
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
