@@ -1,16 +1,18 @@
 import React, { useCallback, useState } from 'react';
-import './App.css';
+import { useSelector } from 'react-redux';
 import Header from './components/Header/Header';
 import LeftAside from './components/LeftAside/LeftAside';
 import { useNavigate } from 'react-router-dom';
 import PageRouter from './routes/PageRouter';
 import { useTranslation } from 'react-i18next';
+import './App.css';
 
 const App = () => {
+  const store = useSelector((store) => store);
+  console.log(store);
   console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
-  const [favoriteMovies, setFavoriteMovies] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
   const [movieList, setMovieList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -62,7 +64,7 @@ const App = () => {
         <LeftAside
           navigateHome={navigateHome}
           navigateFavorites={navigateFavorites}
-          favoriteMovies={favoriteMovies}
+          // favoriteMovies={favoriteMovies}
         />
         <PageRouter
           t={t}
@@ -72,8 +74,8 @@ const App = () => {
           setRenderedList={setRenderedList}
           isShowLoader={isShowLoader}
           setIsShowLoader={setIsShowLoader}
-          favoriteMovies={favoriteMovies}
-          setFavoriteMovies={setFavoriteMovies}
+          // favoriteMovies={favoriteMovies}
+          // setFavoriteMovies={setFavoriteMovies}
           navigateMovies={navigateMovies}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}

@@ -5,15 +5,24 @@ import { Link, useParams } from 'react-router-dom';
 import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addFavoriteMovies,
+  removeFavoriteMovies,
+} from '../../redux/actions/favoriteAC';
 
 const About = ({
   isShowLoader,
   setIsShowLoader,
-  setFavoriteMovies,
-  favoriteMovies,
+  // setFavoriteMovies,
+  // favoriteMovies,
   t,
 }) => {
   console.log('render About');
+  const favoriteMovies = useSelector(
+    (store) => store?.favoriteMoviesReducer?.favoriteMovies
+  );
+  const dispatch = useDispatch();
   const [movie, setMovie] = useState([]);
   const { id } = useParams();
 
@@ -39,12 +48,14 @@ const About = ({
   const isFavorites = (id) => favoriteMovies.some((movie) => movie.id === id);
 
   const handleAddFavorites = () => {
-    setFavoriteMovies((prev) => [...prev, movie]);
+    // setFavoriteMovies((prev) => [...prev, movie]);
+    dispatch(addFavoriteMovies(movie));
   };
 
   const handleDeleteFavorites = (id) => {
-    const deleteFavorites = favoriteMovies.filter((item) => item.id !== id);
-    setFavoriteMovies(deleteFavorites);
+    // const deleteFavorites = favoriteMovies.filter((item) => item.id !== id);
+    // setFavoriteMovies(deleteFavorites);
+    dispatch(removeFavoriteMovies(id));
   };
 
   return (

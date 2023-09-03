@@ -1,11 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Movie from '../../components/Movie/Movie';
+import { useSelector } from 'react-redux';
 import './FavoriteMovies.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 
-const FavoriteMovies = ({ favoriteMovies, t }) => {
+const FavoriteMovies = ({ t }) => {
   console.log('rendering FavoriteMovies');
+  const favoriteMovies = useSelector(
+    (store) => store?.favoriteMoviesReducer?.favoriteMovies
+  );
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>

@@ -1,9 +1,12 @@
-import React from "react";
-import "./LeftAside.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './LeftAside.css';
 
-const LeftAside = ({ navigateHome, navigateFavorites, favoriteMovies }) => {
-  console.log("render LeftAside");
-
+const LeftAside = ({ navigateHome, navigateFavorites }) => {
+  console.log('render LeftAside');
+  const favoriteMovies = useSelector(
+    (store) => store?.favoriteMoviesReducer?.favoriteMovies
+  );
   return (
     <div className="left-navigation">
       <button

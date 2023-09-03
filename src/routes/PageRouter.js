@@ -12,8 +12,6 @@ const PagesRouter = ({
   setRenderedList,
   isShowLoader,
   setIsShowLoader,
-  favoriteMovies,
-  setFavoriteMovies,
   navigateMovies,
   currentPage,
   setCurrentPage,
@@ -58,11 +56,7 @@ const PagesRouter = ({
           />
         }
       />
-      <Route
-        exact
-        path="/favorites"
-        element={<FavoriteMovies favoriteMovies={favoriteMovies} t={t} />}
-      />
+      <Route exact path="/favorites" element={<FavoriteMovies t={t} />} />
       <Route
         exact
         path="/search"
@@ -75,8 +69,6 @@ const PagesRouter = ({
             t={t}
             isShowLoader={isShowLoader}
             setIsShowLoader={setIsShowLoader}
-            setFavoriteMovies={setFavoriteMovies}
-            favoriteMovies={favoriteMovies}
           />
         }
       />
