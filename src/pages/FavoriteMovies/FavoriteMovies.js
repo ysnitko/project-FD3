@@ -6,7 +6,7 @@ import './FavoriteMovies.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 
 const FavoriteMovies = ({ t }) => {
-  console.log('rendering FavoriteMovies');
+  // console.log('rendering FavoriteMovies');
   const favoriteMovies = useSelector(
     (store) => store?.favoriteMoviesReducer?.favoriteMovies
   );

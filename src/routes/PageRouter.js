@@ -13,8 +13,6 @@ const PagesRouter = ({
   isShowLoader,
   setIsShowLoader,
   navigateMovies,
-  currentPage,
-  setCurrentPage,
   movieList,
   searchMovies,
   setMovieList,
@@ -31,7 +29,6 @@ const PagesRouter = ({
           <Home
             t={t}
             navigateMovies={navigateMovies}
-            currentPage={currentPage}
             currentCategory={currentCategory}
           />
         }
@@ -51,8 +48,6 @@ const PagesRouter = ({
             isShowLoader={isShowLoader}
             setIsShowLoader={setIsShowLoader}
             navigateMovies={navigateMovies}
-            setCurrentPage={setCurrentPage}
-            currentPage={currentPage}
           />
         }
       />

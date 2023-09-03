@@ -14,13 +14,11 @@ const MoviesList = ({
   movieList,
   setMovieList,
   navigateMovies,
-  setCurrentPage,
-  currentPage,
   setCategory,
   currentCategory,
   t,
 }) => {
-  console.log('rendering MoviesList');
+  // console.log('rendering MoviesList');
 
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
@@ -41,9 +39,7 @@ const MoviesList = ({
     <div className="movies-container">
       <div>
         <FilterBar
-          currentPage={currentPage}
           setCategory={setCategory}
-          setCurrentPage={setCurrentPage}
           setIsFiltered={setIsFiltered}
           isFiltered={isFiltered}
           setUpdatedList={setUpdatedList}
@@ -76,8 +72,6 @@ const MoviesList = ({
             <Pagination
               currentCategory={currentCategory}
               navigateMovies={navigateMovies}
-              currentPage={currentPage}
-              setCurrentPage={setCurrentPage}
               isFiltered={isFiltered}
               setRenderedList={setRenderedList}
               movieList={movieList}

@@ -1,25 +1,24 @@
 import React, { useCallback, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import LeftAside from './components/LeftAside/LeftAside';
 import { useNavigate } from 'react-router-dom';
 import PageRouter from './routes/PageRouter';
 import { useTranslation } from 'react-i18next';
+import { setPageNumbers } from './redux/actions/pageNumAc';
 import './App.css';
 
 const App = () => {
   const store = useSelector((store) => store);
   console.log(store);
-  console.log('render App');
+  // console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
   const [renderList, setRenderedList] = useState([]);
   const [searchMovies, setSearchMovies] = useState([]);
   const [movieList, setMovieList] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [currentCategory, setCategory] = useState(['All']);
-
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
@@ -27,7 +26,7 @@ const App = () => {
   };
   const navigateHome = () => {
     setCategory('All');
-    setCurrentPage(1);
+    dispatch(setPageNumbers(1));
     navigate('/');
   };
 
@@ -64,7 +63,6 @@ const App = () => {
         <LeftAside
           navigateHome={navigateHome}
           navigateFavorites={navigateFavorites}
-          // favoriteMovies={favoriteMovies}
         />
         <PageRouter
           t={t}
@@ -74,11 +72,7 @@ const App = () => {
           setRenderedList={setRenderedList}
           isShowLoader={isShowLoader}
           setIsShowLoader={setIsShowLoader}
-          // favoriteMovies={favoriteMovies}
-          // setFavoriteMovies={setFavoriteMovies}
           navigateMovies={navigateMovies}
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
           searchMovies={searchMovies}
           setMovieList={setMovieList}
           currentCategory={currentCategory}

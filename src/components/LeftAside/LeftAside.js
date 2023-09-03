@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import './LeftAside.css';
 
 const LeftAside = ({ navigateHome, navigateFavorites }) => {
-  console.log('render LeftAside');
+  // console.log('render LeftAside');
   const favoriteMovies = useSelector(
     (store) => store?.favoriteMoviesReducer?.favoriteMovies
   );
