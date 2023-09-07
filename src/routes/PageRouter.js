@@ -7,7 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Search from '../pages/Search/Search';
 import NotFound from '../pages/NotFound/NotFound';
 
-const PagesRouter = ({ isShowLoader, setIsShowLoader, navigateMovies, t }) => {
+const PagesRouter = ({ navigateMovies, t }) => {
   return (
     <Routes>
       <Route
@@ -18,27 +18,11 @@ const PagesRouter = ({ isShowLoader, setIsShowLoader, navigateMovies, t }) => {
       <Route
         exact
         path="/movies/:category/:page"
-        element={
-          <MoviesList
-            t={t}
-            isShowLoader={isShowLoader}
-            setIsShowLoader={setIsShowLoader}
-            navigateMovies={navigateMovies}
-          />
-        }
+        element={<MoviesList t={t} navigateMovies={navigateMovies} />}
       />
       <Route exact path="/favorites" element={<FavoriteMovies t={t} />} />
       <Route exact path="/search" element={<Search t={t} />} />
-      <Route
-        path="/movies/about/:id"
-        element={
-          <About
-            t={t}
-            isShowLoader={isShowLoader}
-            setIsShowLoader={setIsShowLoader}
-          />
-        }
-      />
+      <Route path="/movies/about/:id" element={<About t={t} />} />
       <Route path="/*" element={<NotFound t={t} />} />
     </Routes>
   );

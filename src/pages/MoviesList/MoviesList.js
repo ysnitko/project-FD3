@@ -3,31 +3,35 @@ import Movie from '../../components/Movie/Movie';
 import FilterBar from '../../components/FilterBar/FilterBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMovieList } from '../../redux/actions/movieListAC';
+import { showLoader } from '../../redux/actions/loaderAC';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
-const MoviesList = ({ setIsShowLoader, isShowLoader, navigateMovies, t }) => {
+const MoviesList = ({ navigateMovies, t }) => {
   // console.log('rendering MoviesList');
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const renderList = useSelector(
     (store) => store?.setMovieListReducer?.renderList
   );
+  const isShowLoader = useSelector(
+    (store) => store?.showLoaderReducer?.isShowLoader
+  );
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsShowLoader(true);
+      dispatch(showLoader(true));
       const url = `https://api.tvmaze.com/shows`;
       const response = await fetch(url);
       const result = await response.json();
-      setIsShowLoader(false);
+      dispatch(showLoader(false));
       dispatch(setMovieList(result));
     };
     fetchData();
-  }, [setIsShowLoader, isFiltered, dispatch]);
+  }, [isFiltered, dispatch]);
 
   return (
     <div className="movies-container">

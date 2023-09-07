@@ -6,15 +6,19 @@ import {
   addFavoriteMovies,
   removeFavoriteMovies,
 } from '../../redux/actions/favoriteAC';
+import { showLoader } from '../../redux/actions/loaderAC';
 import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import calendarIcons from '../../helpers/img/calendar-icon.svg';
 import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
 
-const About = ({ isShowLoader, setIsShowLoader, t }) => {
+const About = ({ t }) => {
   // console.log('render About');
   const favoriteMovies = useSelector(
     (store) => store?.favoriteMoviesReducer?.favoriteMovies
+  );
+  const isShowLoader = useSelector(
+    (store) => store?.showLoaderReducer?.isShowLoader
   );
   const dispatch = useDispatch();
   const [movie, setMovie] = useState([]);
@@ -22,15 +26,15 @@ const About = ({ isShowLoader, setIsShowLoader, t }) => {
 
   useEffect(() => {
     const fetchSHowInfo = async () => {
-      setIsShowLoader(true);
+      dispatch(showLoader(true));
       const url = `https://api.tvmaze.com/shows/${id}`;
       const response = await fetch(url);
       const data = await response.json();
       setMovie(data);
-      setIsShowLoader(false);
+      dispatch(showLoader(false));
     };
     fetchSHowInfo();
-  }, [id, setIsShowLoader]);
+  }, [id, dispatch]);
 
   const transformCategory = useMemo(() => {
     let categoryMovie = movie.genres?.map((item, index) =>

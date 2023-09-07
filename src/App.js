@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import LeftAside from './components/LeftAside/LeftAside';
@@ -13,7 +13,6 @@ const App = () => {
   const store = useSelector((store) => store);
   console.log(store);
   // console.log('render App');
-  const [isShowLoader, setIsShowLoader] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -60,8 +59,8 @@ const App = () => {
         />
         <PageRouter
           t={t}
-          isShowLoader={isShowLoader}
-          setIsShowLoader={setIsShowLoader}
+          // isShowLoader={isShowLoader}
+          // setIsShowLoader={setIsShowLoader}
           navigateMovies={navigateMovies}
         />
       </div>
