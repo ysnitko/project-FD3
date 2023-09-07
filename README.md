@@ -48,9 +48,20 @@
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.02.37.png)
 
-В компоненте [Pagination](https://github.com/ysnitko/project-FD3/blob/main/src/components/Pagination/Pagination.js) реализована пагинация. Количество отображаемых фильмов задается переменной perPage в компоненте perPage (по умолчанию 15), активная страница выделяется рамкой.
+В компоненте [Pagination](https://github.com/ysnitko/project-FD3/blob/main/src/components/Pagination/Pagination.js) реализована пагинация. Количество отображаемых фильмов задается переменной perPage в компоненте (по умолчанию 15), активная страница выделяется рамкой.
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.19.42.png)
+
+### 4. Кроссбраузерность.
+
+Приложение сохраняет свою функциональность в браузерах Chrome, IE, Opera, Firefox, в браузере Safari наблюдаются различия в стилях таких элементов html как select.
+
+Приложение адаптировано:
+к планшетам:
+
+    мобильным устройствам на ОС Android и iOS:
+
+Для демонстрации работы приложения необходимо перейти по [ссылке](https://streaming-serv.netlify.app/) ссылке с мобильных устройств.
 
 ### `npm run build`
 
