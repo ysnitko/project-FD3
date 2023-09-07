@@ -30,7 +30,7 @@
 
 Текст страницы рендерится на языке в зависимости от выбранной пользователем локализации (доступен английский и русский язык). По умолчанию выбран английский язык. Реализовано при помощи плагина react-i18n.
 
-![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2000.12.49.png)
+![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2000.42.20.png)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
