@@ -20,9 +20,7 @@
 
 ### 1. Динамичность веб-страниц.
 
-#### 1.1. Вид веб страниц меняется при роутинге.
-
-#### 1.2. Веб-страницы подстраиваются под действия пользователя, под ситуацию - изменяется вёрстка элементов.
+Веб-страницы подстраиваются под действия пользователя, под ситуацию - изменяется вёрстка элементов.
 
 Реализован условный рендер кнопки бокового меню 'Избранное', которая оповещает пользователя о том, что в список избранного добавлены фильмы, а также кнопки добавления и удаления из избранного.
 
@@ -50,8 +48,9 @@
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.02.37.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+В компоненте [Pagination](https://github.com/ysnitko/project-FD3/blob/main/src/components/Pagination/Pagination.js.) реализована пагинация. Количество отображаемых фильмов задается переменной perPage в компоненте perPage (по умолчанию 15), активная страница выделяется рамкой.
+
+![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.02.37.png)
 
 ### `npm run build`
 
