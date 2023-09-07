@@ -40,6 +40,8 @@
 
 Заметных задержек при перестраивании веб-страниц, роутинге не установлено. Данные для приложения (каталог фильмов, информация о них) предосталяются посредством обращения к API. Задержки отрисовки страниц могут быть вызваны различными условиями доступа к API. В момент загрузки данных отображается индикатор закгрузки.
 
+![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2001.23.35.png)
+
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
