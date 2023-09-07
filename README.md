@@ -50,7 +50,7 @@
 
 В компоненте [Pagination](https://github.com/ysnitko/project-FD3/blob/main/src/components/Pagination/Pagination.js.) реализована пагинация. Количество отображаемых фильмов задается переменной perPage в компоненте perPage (по умолчанию 15), активная страница выделяется рамкой.
 
-![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.02.37.png)
+![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.19.42.png)
 
 ### `npm run build`
 
