@@ -1,8 +1,8 @@
 # Выпускной проект - SPA "Streaming Service"
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Как запустить проект?
 
-## Available Scripts
+1.
 
 In the project directory, you can run:
 
