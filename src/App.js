@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import PageRouter from './routes/PageRouter';
 import { useTranslation } from 'react-i18next';
 import { setPageNumbers } from './redux/actions/pageNumAc';
+import { setCategoryTypes } from './redux/actions/categoryAC';
 import './App.css';
 
 const App = () => {
@@ -13,10 +14,6 @@ const App = () => {
   console.log(store);
   // console.log('render App');
   const [isShowLoader, setIsShowLoader] = useState(false);
-  const [renderList, setRenderedList] = useState([]);
-  const [searchMovies, setSearchMovies] = useState([]);
-  const [movieList, setMovieList] = useState([]);
-  const [currentCategory, setCategory] = useState(['All']);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -25,7 +22,7 @@ const App = () => {
     console.log(event.target.value);
   };
   const navigateHome = () => {
-    setCategory('All');
+    dispatch(setCategoryTypes('All'));
     dispatch(setPageNumbers(1));
     navigate('/');
   };
@@ -53,10 +50,7 @@ const App = () => {
       <Header
         t={t}
         changeLanguage={changeLanguage}
-        movieList={movieList}
-        setRenderedList={setRenderedList}
         navigateSearch={navigateSearch}
-        setSearchMovies={setSearchMovies}
         navigateMovies={navigateMovies}
       />
       <div className="main-block">
@@ -66,16 +60,9 @@ const App = () => {
         />
         <PageRouter
           t={t}
-          setCategory={setCategory}
-          movieList={movieList}
-          renderList={renderList}
-          setRenderedList={setRenderedList}
           isShowLoader={isShowLoader}
           setIsShowLoader={setIsShowLoader}
           navigateMovies={navigateMovies}
-          searchMovies={searchMovies}
-          setMovieList={setMovieList}
-          currentCategory={currentCategory}
         />
       </div>
     </div>

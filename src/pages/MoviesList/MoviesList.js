@@ -1,27 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import Movie from '../../components/Movie/Movie';
 import FilterBar from '../../components/FilterBar/FilterBar';
+import { useSelector, useDispatch } from 'react-redux';
+import { setMovieList } from '../../redux/actions/movieListAC';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
 import Pagination from '../../components/Pagination/Pagination';
 import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
-const MoviesList = ({
-  setIsShowLoader,
-  isShowLoader,
-  renderList,
-  setRenderedList,
-  movieList,
-  setMovieList,
-  navigateMovies,
-  setCategory,
-  currentCategory,
-  t,
-}) => {
+const MoviesList = ({ setIsShowLoader, isShowLoader, navigateMovies, t }) => {
   // console.log('rendering MoviesList');
-
   const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
+  const renderList = useSelector(
+    (store) => store?.setMovieListReducer?.renderList
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -30,20 +24,18 @@ const MoviesList = ({
       const response = await fetch(url);
       const result = await response.json();
       setIsShowLoader(false);
-      setMovieList(result);
+      dispatch(setMovieList(result));
     };
     fetchData();
-  }, [setIsShowLoader, isFiltered, setMovieList]);
+  }, [setIsShowLoader, isFiltered, dispatch]);
 
   return (
     <div className="movies-container">
       <div>
         <FilterBar
-          setCategory={setCategory}
           setIsFiltered={setIsFiltered}
           isFiltered={isFiltered}
           setUpdatedList={setUpdatedList}
-          movieList={movieList}
           navigateMovies={navigateMovies}
           t={t}
         />
@@ -70,11 +62,8 @@ const MoviesList = ({
               ))}
             </ul>
             <Pagination
-              currentCategory={currentCategory}
               navigateMovies={navigateMovies}
               isFiltered={isFiltered}
-              setRenderedList={setRenderedList}
-              movieList={movieList}
               updatedList={updatedList}
             />
           </div>

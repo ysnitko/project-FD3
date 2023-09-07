@@ -3,11 +3,15 @@ import { useSelector } from 'react-redux';
 import './Home.css';
 import calendarIcons from '../../helpers/img/calendar-icon.svg';
 
-const Home = ({ navigateMovies, currentCategory, t }) => {
+const Home = ({ navigateMovies, t }) => {
   // console.log('render Home');
   const currentPage = useSelector(
     (store) => store?.setPageNumbersReducer?.currentPage
   );
+  const currentCategory = useSelector(
+    (store) => store?.setCategoryReducer?.currentCategory
+  );
+
   return (
     <div className="home-screen">
       <div className="title">

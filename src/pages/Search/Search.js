@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Movie from '../../components/Movie/Movie';
 import Arrow from '../../helpers/img/Arrow.svg';
 import './Search.css';
 
-const Search = ({ searchMovies, t }) => {
+const Search = ({ t }) => {
+  const searchMovies = useSelector(
+    (store) => store?.setMovieListReducer?.searchMovies
+  );
   // console.log('rendering Search');
   return (
     <div className="favorites-container">

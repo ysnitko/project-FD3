@@ -1,19 +1,17 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchList } from '../../redux/actions/movieListAC';
 import './Header.css';
 import logoSvg from '../../helpers/img/logo.svg';
 import langSvg from '../../helpers/img/lang.svg';
 
-const Header = ({
-  navigateMovies,
-  setSearchMovies,
-  navigateSearch,
-  movieList,
-  changeLanguage,
-  t,
-}) => {
+const Header = ({ navigateMovies, navigateSearch, changeLanguage, t }) => {
   // console.log("render Header");
-
+  const movieList = useSelector(
+    (store) => store?.setMovieListReducer?.movieList
+  );
+  const dispatch = useDispatch();
   const searchRef = useRef(null);
 
   const searchMovies = (event) => {
@@ -23,7 +21,7 @@ const Header = ({
       const filtered = movieList.filter((item) =>
         item.name.toLowerCase().includes(searchRefValue.toLowerCase())
       );
-      setSearchMovies(filtered);
+      dispatch(setSearchList(filtered));
       navigateSearch();
     } else {
       navigateMovies();

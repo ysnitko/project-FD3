@@ -7,31 +7,13 @@ import { Routes, Route } from 'react-router-dom';
 import Search from '../pages/Search/Search';
 import NotFound from '../pages/NotFound/NotFound';
 
-const PagesRouter = ({
-  renderList,
-  setRenderedList,
-  isShowLoader,
-  setIsShowLoader,
-  navigateMovies,
-  movieList,
-  searchMovies,
-  setMovieList,
-  currentCategory,
-  setCategory,
-  t,
-}) => {
+const PagesRouter = ({ isShowLoader, setIsShowLoader, navigateMovies, t }) => {
   return (
     <Routes>
       <Route
         exact
         path="/"
-        element={
-          <Home
-            t={t}
-            navigateMovies={navigateMovies}
-            currentCategory={currentCategory}
-          />
-        }
+        element={<Home t={t} navigateMovies={navigateMovies} />}
       />
       <Route
         exact
@@ -39,12 +21,6 @@ const PagesRouter = ({
         element={
           <MoviesList
             t={t}
-            setCategory={setCategory}
-            currentCategory={currentCategory}
-            movieList={movieList}
-            setMovieList={setMovieList}
-            renderList={renderList}
-            setRenderedList={setRenderedList}
             isShowLoader={isShowLoader}
             setIsShowLoader={setIsShowLoader}
             navigateMovies={navigateMovies}
@@ -52,11 +28,7 @@ const PagesRouter = ({
         }
       />
       <Route exact path="/favorites" element={<FavoriteMovies t={t} />} />
-      <Route
-        exact
-        path="/search"
-        element={<Search searchMovies={searchMovies} t={t} />}
-      />
+      <Route exact path="/search" element={<Search t={t} />} />
       <Route
         path="/movies/about/:id"
         element={
