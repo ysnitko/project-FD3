@@ -32,6 +32,8 @@
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2000.42.20.png)
 
+Содержимое страницы с фильмами рендерится динамически в зависимости от выбранной пользователем категории и сортировки по наиманованию либо рейтингу.
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
