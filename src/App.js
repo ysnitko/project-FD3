@@ -1,17 +1,17 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import LeftAside from './components/LeftAside/LeftAside';
-import { useNavigate } from 'react-router-dom';
 import PageRouter from './routes/PageRouter';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { setPageNumbers } from './redux/actions/pageNumAc';
 import { setCategoryTypes } from './redux/actions/categoryAC';
 import './App.css';
 
 const App = () => {
-  const store = useSelector((store) => store);
-  console.log(store);
+  // const store = useSelector((store) => store);
+  // console.log(store);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -39,6 +39,7 @@ const App = () => {
 
   const navigateSearch = () => {
     navigate('/search');
+    console.log('a');
   };
 
   return (

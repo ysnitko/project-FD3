@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Movie from '../../components/Movie/Movie';
 import { useSelector } from 'react-redux';
+import Movie from '../../components/Movie/Movie';
 import './FavoriteMovies.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 

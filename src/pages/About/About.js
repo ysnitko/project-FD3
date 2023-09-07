@@ -1,12 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   addFavoriteMovies,
   removeFavoriteMovies,
 } from '../../redux/actions/favoriteAC';
 import { showLoader } from '../../redux/actions/loaderAC';
+import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import calendarIcons from '../../helpers/img/calendar-icon.svg';

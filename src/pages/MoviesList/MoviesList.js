@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import Movie from '../../components/Movie/Movie';
-import FilterBar from '../../components/FilterBar/FilterBar';
 import { useSelector, useDispatch } from 'react-redux';
 import { setMovieList } from '../../redux/actions/movieListAC';
 import { showLoader } from '../../redux/actions/loaderAC';
 import './MoviesList.css';
 import { Link } from 'react-router-dom';
+import Movie from '../../components/Movie/Movie';
+import FilterBar from '../../components/FilterBar/FilterBar';
 import Pagination from '../../components/Pagination/Pagination';
 import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
