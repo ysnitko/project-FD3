@@ -44,9 +44,9 @@
 
 ### 3. Навигация в приложении.
 
-Кнопки 'вперед', 'назад', 'освежить' работают корректно. Роутинг реализован средствами react-routing и описан в файле PageRouter.js (/src/routes/PageRouter.js) .
-
-[PageRouter.js](https://github.com/ysnitko/project-FD3/blob/main/src/routes/PageRouter.js).
+Кнопки 'вперед', 'назад', 'освежить' работают корректно. Роутинг реализован средствами react-routing и описан в файле [PageRouter.js](https://github.com/ysnitko/project-FD3/blob/main/src/routes/PageRouter.js).
+Используется вложенный роутинг (фильмы -> о фильме -> идентификатор фильма, фильмы -> категория -> cтраница).
+Роутинг дублируется
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
