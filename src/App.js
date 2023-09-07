@@ -17,7 +17,6 @@ const App = () => {
   const { t, i18n } = useTranslation();
   const changeLanguage = (event) => {
     i18n.changeLanguage(event.target.value);
-    console.log(event.target.value);
   };
 
   const navigateHome = () => {
@@ -39,7 +38,6 @@ const App = () => {
 
   const navigateSearch = () => {
     navigate('/search');
-    console.log('a');
   };
 
   return (
