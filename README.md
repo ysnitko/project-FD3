@@ -1,6 +1,6 @@
 # Выпускной проект - SPA "Streaming Service"
 
-![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-07%20at%2022.52.13.png)
+![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-07%20at%2023.16.17.png)
 
 ## Как запустить проект?
 
