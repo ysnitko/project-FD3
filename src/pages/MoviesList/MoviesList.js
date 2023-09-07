@@ -10,8 +10,6 @@ import Pagination from '../../components/Pagination/Pagination';
 import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
 
 const MoviesList = ({ navigateMovies, t }) => {
-  // console.log('rendering MoviesList');
-  const [updatedList, setUpdatedList] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   const renderList = useSelector(
     (store) => store?.setMovieListReducer?.renderList
@@ -39,7 +37,6 @@ const MoviesList = ({ navigateMovies, t }) => {
         <FilterBar
           setIsFiltered={setIsFiltered}
           isFiltered={isFiltered}
-          setUpdatedList={setUpdatedList}
           navigateMovies={navigateMovies}
           t={t}
         />
@@ -68,7 +65,6 @@ const MoviesList = ({ navigateMovies, t }) => {
             <Pagination
               navigateMovies={navigateMovies}
               isFiltered={isFiltered}
-              updatedList={updatedList}
             />
           </div>
         )}

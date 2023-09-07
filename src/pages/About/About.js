@@ -13,7 +13,6 @@ import calendarIcons from '../../helpers/img/calendar-icon.svg';
 import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
 
 const About = ({ t }) => {
-  // console.log('render About');
   const favoriteMovies = useSelector(
     (store) => store?.favoriteMoviesReducer?.favoriteMovies
   );

@@ -2,17 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPageNumbers } from '../../redux/actions/pageNumAc';
 import { setCategoryTypes } from '../../redux/actions/categoryAC';
+import { setUpdatedList } from '../../redux/actions/movieListAC';
 import { useSelector } from 'react-redux';
 import './FilterBar.css';
 
-const FilterBar = ({
-  setUpdatedList,
-  setIsFiltered,
-  isFiltered,
-  navigateMovies,
-  t,
-}) => {
-  // console.log('render FilterBar');
+const FilterBar = ({ setIsFiltered, isFiltered, navigateMovies, t }) => {
   const [filteredMovieList, setFilteredMovieList] = useState([]);
   const movieList = useSelector(
     (store) => store?.setMovieListReducer?.movieList
@@ -49,7 +43,7 @@ const FilterBar = ({
       });
     }
     setFilteredMovieList(sortedList);
-    setUpdatedList(sortedList);
+    dispatch(setUpdatedList(sortedList));
     setIsFiltered(true);
   };
 
@@ -67,7 +61,7 @@ const FilterBar = ({
     dispatch(setPageNumbers(1));
     navigateMovies(selectedCategory, 1);
     setIsFiltered(true);
-    setUpdatedList(filteredList);
+    dispatch(setUpdatedList(filteredList));
     setFilteredMovieList(filteredList);
   };
 

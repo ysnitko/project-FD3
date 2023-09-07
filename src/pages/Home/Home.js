@@ -4,7 +4,6 @@ import './Home.css';
 import calendarIcons from '../../helpers/img/calendar-icon.svg';
 
 const Home = ({ navigateMovies, t }) => {
-  // console.log('render Home');
   const currentPage = useSelector(
     (store) => store?.setPageNumbersReducer?.currentPage
   );

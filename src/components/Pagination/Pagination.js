@@ -4,8 +4,7 @@ import { setPageNumbers } from '../../redux/actions/pageNumAc';
 import { setRenderList } from '../../redux/actions/movieListAC';
 import './Pagination.css';
 
-const Pagination = ({ updatedList, isFiltered, navigateMovies }) => {
-  // console.log('rendering Pagination');
+const Pagination = ({ isFiltered, navigateMovies }) => {
   const perPage = 15;
   const currentPage = useSelector(
     (store) => store?.setPageNumbersReducer?.currentPage
@@ -16,6 +15,11 @@ const Pagination = ({ updatedList, isFiltered, navigateMovies }) => {
   const movieList = useSelector(
     (store) => store?.setMovieListReducer?.movieList
   );
+
+  const updatedList = useSelector(
+    (store) => store?.setMovieListReducer?.updatedList
+  );
+
   const dispatch = useDispatch();
 
   useEffect(() => {

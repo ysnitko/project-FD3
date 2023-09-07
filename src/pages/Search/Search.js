@@ -9,7 +9,6 @@ const Search = ({ t }) => {
   const searchMovies = useSelector(
     (store) => store?.setMovieListReducer?.searchMovies
   );
-  // console.log('rendering Search');
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>

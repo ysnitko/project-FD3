@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import LeftAside from './components/LeftAside/LeftAside';
@@ -12,7 +12,6 @@ import './App.css';
 const App = () => {
   const store = useSelector((store) => store);
   console.log(store);
-  // console.log('render App');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { t, i18n } = useTranslation();
@@ -20,21 +19,19 @@ const App = () => {
     i18n.changeLanguage(event.target.value);
     console.log(event.target.value);
   };
+
   const navigateHome = () => {
     dispatch(setCategoryTypes('All'));
     dispatch(setPageNumbers(1));
     navigate('/');
   };
 
-  const navigateMovies = useCallback(
-    (category, page) => {
-      if (typeof category !== `string`) {
-        category = 'All';
-      }
-      navigate(`/movies/${category}/${page}`);
-    },
-    [navigate]
-  );
+  const navigateMovies = (category, page) => {
+    if (typeof category !== `string`) {
+      category = 'All';
+    }
+    navigate(`/movies/${category}/${page}`);
+  };
 
   const navigateFavorites = () => {
     navigate('/favorites');
@@ -57,12 +54,7 @@ const App = () => {
           navigateHome={navigateHome}
           navigateFavorites={navigateFavorites}
         />
-        <PageRouter
-          t={t}
-          // isShowLoader={isShowLoader}
-          // setIsShowLoader={setIsShowLoader}
-          navigateMovies={navigateMovies}
-        />
+        <PageRouter t={t} navigateMovies={navigateMovies} />
       </div>
     </div>
   );

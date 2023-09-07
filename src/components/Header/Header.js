@@ -7,7 +7,6 @@ import logoSvg from '../../helpers/img/logo.svg';
 import langSvg from '../../helpers/img/lang.svg';
 
 const Header = ({ navigateMovies, navigateSearch, changeLanguage, t }) => {
-  // console.log("render Header");
   const movieList = useSelector(
     (store) => store?.setMovieListReducer?.movieList
   );

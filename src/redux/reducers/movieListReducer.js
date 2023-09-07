@@ -2,10 +2,11 @@ import {
   SET_MOVIE_LIST,
   SET_RENDERED_LIST,
   SET_SEARCH_LIST,
+  SET_UPDATED_LIST,
 } from '../constants';
 
 const setMovieListReducer = (
-  state = { movieList: [], renderList: [], searchMovies: [] },
+  state = { movieList: [], renderList: [], searchMovies: [], updatedList: [] },
   { type, payload }
 ) => {
   switch (type) {
@@ -15,6 +16,8 @@ const setMovieListReducer = (
       return { ...state, renderList: payload };
     case SET_SEARCH_LIST:
       return { ...state, searchMovies: payload };
+    case SET_UPDATED_LIST:
+      return { ...state, updatedList: payload };
     default:
       return state;
   }
