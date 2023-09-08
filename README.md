@@ -44,7 +44,7 @@
 
 Кнопки 'вперед', 'назад', 'освежить' работают корректно. Роутинг реализован средствами react-routing и описан в файле [PageRouter.js](https://github.com/ysnitko/project-FD3/blob/main/src/routes/PageRouter.js).
 Используется вложенный роутинг (фильмы -> о фильме -> идентификатор фильма, фильмы -> категория -> cтраница).
-Роутинг хранится в URL приложения.
+Текущая позиция пользователя в приложении передается в URL.
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.02.37.png)
 
