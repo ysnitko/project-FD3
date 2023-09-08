@@ -68,6 +68,10 @@
 
 Веб-приложение широко использует AJAX для загрузки контента, данных, ресурсов.
 Основной контент для приложения (фильмы, информация о них) при помощи метода fetch загружается с сервера `https://api.tvmaze.com` (реализовано в компонентах [MovieList](https://github.com/ysnitko/project-FD3/blob/main/src/pages/MoviesList/MoviesList.js), [About](https://github.com/ysnitko/project-FD3/blob/main/src/pages/About/About.js)).
-В момент загрузки данных отображается индикатор закгрузки.
+В момент запроса данных отображается индикатор загрузки.
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2001.23.35.png)
+
+### 6. Модель данных.
+
+Для управления состоянием приложения используется модель данных redux. Основная логика работы с redux расположена в папке [redux](https://github.com/ysnitko/project-FD3/tree/main/src/redux).Результирующий reducer приведен в файле [index.js](https://github.com/ysnitko/project-FD3/blob/main/src/redux/reducers/index.js) и посредством использования метода combineReducers собирает вложенные редьюсеры в единый объект.
