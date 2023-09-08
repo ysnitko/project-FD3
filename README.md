@@ -13,7 +13,7 @@
 4. Для загрузки необходимых библиотек, используемых в проекте, в терминале выполните команду `npm i`.
 
 5. После загрузки библиотек и зависимостей запускаем сборку проекта, используя команду `serve -s build`. В случае возниконовения на ОС MS Windows ошибки, связанной с запретом на выполнение сценариев powershell
-   ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-07%20at%2023.16.17.png) необходимо запустить терминал powershell с административными привилегиями и выполнить команду `Set-ExecutionPolicy RemoteSigned`
+   ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Error_policy.JPG) необходимо запустить терминал powershell с административными привилегиями и выполнить команду `Set-ExecutionPolicy RemoteSigned`
 
 6. Проект запустится автоматически в браузере либо будет доступен по адресу [http://localhost:3000](http://localhost:3000).
 
