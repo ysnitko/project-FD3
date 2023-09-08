@@ -63,6 +63,7 @@
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.51.34.png)
 
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2002.51.50.png)
+``
 Для демонстрации работы приложения необходимо перейти по [ссылке](https://streaming-serv.netlify.app/) с мобильных устройств.
 
 ### `npm run build`
