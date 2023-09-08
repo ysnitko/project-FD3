@@ -74,4 +74,8 @@
 
 ### 6. Модель данных.
 
-Для управления состоянием приложения используется модель данных redux. Основная логика работы с redux расположена в папке [redux](https://github.com/ysnitko/project-FD3/tree/main/src/redux).Результирующий reducer приведен в файле [index.js](https://github.com/ysnitko/project-FD3/blob/main/src/redux/reducers/index.js) и посредством использования метода combineReducers собирает вложенные редьюсеры в единый объект.
+Для управления состоянием приложения используется модель данных redux. Основная логика работы с redux расположена в папке [redux](https://github.com/ysnitko/project-FD3/tree/main/src/redux). Результирующий reducer приведен в файле [index.js](https://github.com/ysnitko/project-FD3/blob/main/src/redux/reducers/index.js) и посредством использования метода combineReducers собирает вложенные редьюсеры в единый объект.
+
+### 7. Сборка проекта.
+
+Для автоматической сборки приложения в терминале необходимо выполнить команду `npm run build`. Приложение развернуто на сервисе [Netlify](https://streaming-serv.netlify.app/), который интегрирован с github репозиторием. Любые изменения в функционале приложения после его сборки будут обновлены в резвернутом проекте.
