@@ -52,6 +52,7 @@ const App = () => {
         <LeftAside
           navigateHome={navigateHome}
           navigateFavorites={navigateFavorites}
+          t={t}
         />
         <PageRouter t={t} navigateMovies={navigateMovies} />
       </div>

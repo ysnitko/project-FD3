@@ -61,6 +61,8 @@ const resources = {
       'Searching results': 'Результаты поиска',
       'Oops...no results': 'Упс...ничего не найдено',
       'Oops...Page not found': 'Упс...страница не найдена',
+      Home: 'Главная',
+      Favorites: 'Избранное',
     },
   },
 };
