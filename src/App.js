@@ -1,13 +1,13 @@
-import React from 'react';
-import Header from './components/Header/Header';
-import LeftAside from './components/LeftAside/LeftAside';
-import PageRouter from './routes/PageRouter';
-import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { setPageNumbers } from './redux/actions/pageNumAc';
-import { setCategoryTypes } from './redux/actions/categoryAC';
-import './App.css';
+import React from "react";
+import Header from "./components/Header/Header";
+import LeftAside from "./components/LeftAside/LeftAside";
+import PageRouter from "./routes/PageRouter";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { setPageNumbers } from "./redux/actions/pageNumAc";
+import { setCategoryTypes } from "./redux/actions/categoryAC";
+import "./App.css";
 
 const App = () => {
   // const store = useSelector((store) => store);
@@ -20,24 +20,28 @@ const App = () => {
   };
 
   const navigateHome = () => {
-    dispatch(setCategoryTypes('All'));
+    dispatch(setCategoryTypes("All"));
     dispatch(setPageNumbers(1));
-    navigate('/');
+    navigate("/");
   };
 
   const navigateMovies = (category, page) => {
     if (typeof category !== `string`) {
-      category = 'All';
+      category = "All";
     }
     navigate(`/movies/${category}/${page}`);
   };
 
   const navigateFavorites = () => {
-    navigate('/favorites');
+    navigate("/favorites");
   };
 
   const navigateSearch = () => {
-    navigate('/search');
+    navigate("/search");
+  };
+
+  const navigateAuth = () => {
+    navigate("/autorization");
   };
 
   return (
@@ -47,6 +51,7 @@ const App = () => {
         changeLanguage={changeLanguage}
         navigateSearch={navigateSearch}
         navigateMovies={navigateMovies}
+        navigateAuth={navigateAuth}
       />
       <div className="main-block">
         <LeftAside
