@@ -1,17 +1,17 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useMemo, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   addFavoriteMovies,
   removeFavoriteMovies,
-} from "../../redux/actions/favoriteAC";
-import { showLoader } from "../../redux/actions/loaderAC";
-import Characters from "../../components/Characters/Characters";
-import LoadinSpinner from "../../components/LoadingSpinner/LoadinSpinner";
-import "./About.css";
-import Arrow from "../../helpers/img/Arrow.svg";
-import calendarIcons from "../../helpers/img/calendar-icon.svg";
-import Star_favotites_block from "../../helpers/img/Star_favotites_block.svg";
+} from '../../redux/actions/favoriteAC';
+import { showLoader } from '../../redux/actions/loaderAC';
+import Characters from '../../components/Characters/Characters';
+import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
+import './About.css';
+import Arrow from '../../helpers/img/Arrow.svg';
+import calendarIcons from '../../helpers/img/calendar-icon.svg';
+import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
 
 const About = ({ t }) => {
   const favoriteMovies = useSelector(
@@ -39,7 +39,7 @@ const About = ({ t }) => {
 
   const transformCategory = useMemo(() => {
     let categoryMovie = movie.genres?.map((item, index) =>
-      index === movie.genres.length - 1 ? item : item + ", "
+      index === movie.genres.length - 1 ? item : item + ', '
     );
     return categoryMovie;
   }, [movie.genres]);
@@ -61,7 +61,7 @@ const About = ({ t }) => {
   return (
     <div className="about-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span> {t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span> {t('Back')}</span>
       </Link>
       {isShowLoader ? (
         <LoadinSpinner />
@@ -77,7 +77,7 @@ const About = ({ t }) => {
           </picture>
 
           <div className="movie-information">
-            <span className="new-episode active">{t("NEW EPISODES")}</span>
+            <span className="new-episode active">{t('NEW EPISODES')}</span>
             <span className="show-name"> {movie.name},</span>
             <div className="movie-info-row">
               <span className="movie-lbl">Movie</span>
@@ -92,10 +92,10 @@ const About = ({ t }) => {
             <div className="favorites-block">
               <div className="share">
                 <button type="button"></button>
-                <span>{t("Share")}</span>
+                <span>{t('Share')}</span>
               </div>
               <div className="rating-movie">
-                <span>{t("Rate")}</span>
+                <span>{t('Rate')}</span>
                 <div className="rating-star">
                   <img src={Star_favotites_block} alt="star" />
                   <span>{movie.rating?.average}</span>
@@ -106,14 +106,14 @@ const About = ({ t }) => {
                   className="add-favorites-none"
                   onClick={() => handleDeleteFavorites(movie.id)}
                 >
-                  {t("REMOVE FROM FAVORITES")}
+                  {t('REMOVE FROM FAVORITES')}
                 </button>
               ) : (
                 <button
                   className="add-favorites-btn"
                   onClick={handleAddFavorites}
                 >
-                  {t("ADD TO FAVORITES")}
+                  {t('ADD TO FAVORITES')}
                 </button>
               )}
             </div>
@@ -131,7 +131,11 @@ const About = ({ t }) => {
           checked={isShowCharacters}
           onChange={handleShowCharacters}
         />
-        <span>Actors</span>
+        {!isShowCharacters ? (
+          <span className="toggle-actors">show actors</span>
+        ) : (
+          <span className="toggle-actors">hide</span>
+        )}
       </label>
       {isShowCharacters && <Characters id={id} />}
     </div>
