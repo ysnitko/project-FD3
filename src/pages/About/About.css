@@ -68,7 +68,8 @@
   font-size: var(--fs-7);
 }
 
-.new-episode {
+.new-episode,
+.actors {
   font-size: var(--fs-3);
 }
 
