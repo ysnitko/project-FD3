@@ -37,8 +37,9 @@ const Characters = ({ id }) => {
             id="clickable"
             className="character-link"
             // className="my-anchor-element"
-            onMouseOverCapture={handleMouseEnter}
-            onMouseOutCapture={handleMouseLeave}
+            onMouseEnter={handleMouseEnter}
+            onMouseOutLeave={handleMouseLeave}
+            data-tip={character.person.name}
           >
             {/* <img src={character.person.image.medium} alt="" /> */}
             {character.person.name}

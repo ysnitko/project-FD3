@@ -128,12 +128,12 @@ const About = ({ t }) => {
               />
               {!isShowCharacters ? (
                 <div className="toggle-container">
-                  <span className="toggle-actors">actors</span>
+                  <span className="toggle-actors">Actors</span>
                   <img src={arr_down} alt="arrow-down" />
                 </div>
               ) : (
                 <div className="toggle-container">
-                  <span className="toggle-actors">actors</span>
+                  <span className="toggle-actors">Actors</span>
                   <img src={arr_up} alt="arrow-up" />
                 </div>
               )}
