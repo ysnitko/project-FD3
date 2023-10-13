@@ -12,6 +12,8 @@ import './About.css';
 import Arrow from '../../helpers/img/Arrow.svg';
 import calendarIcons from '../../helpers/img/calendar-icon.svg';
 import Star_favotites_block from '../../helpers/img/Star_favotites_block.svg';
+import arr_down from '../../helpers/img/arr-down.svg';
+import arr_up from '../../helpers/img/arr-up.svg';
 
 const About = ({ t }) => {
   const favoriteMovies = useSelector(
@@ -117,6 +119,26 @@ const About = ({ t }) => {
                 </button>
               )}
             </div>
+            <label htmlFor="showCharacters">
+              <input
+                type="checkbox"
+                id="showCharacters"
+                checked={isShowCharacters}
+                onChange={handleShowCharacters}
+              />
+              {!isShowCharacters ? (
+                <div className="toggle-container">
+                  <span className="toggle-actors">actors</span>
+                  <img src={arr_down} alt="arrow-down" />
+                </div>
+              ) : (
+                <div className="toggle-container">
+                  <span className="toggle-actors">actors</span>
+                  <img src={arr_up} alt="arrow-up" />
+                </div>
+              )}
+            </label>
+            {isShowCharacters && <Characters id={id} />}
             <span
               className="movie-summary"
               dangerouslySetInnerHTML={{ __html: movie.summary }}
@@ -124,20 +146,6 @@ const About = ({ t }) => {
           </div>
         </div>
       )}
-      <label htmlFor="showCharacters">
-        <input
-          type="checkbox"
-          id="showCharacters"
-          checked={isShowCharacters}
-          onChange={handleShowCharacters}
-        />
-        {!isShowCharacters ? (
-          <span className="toggle-actors">show actors</span>
-        ) : (
-          <span className="toggle-actors">hide</span>
-        )}
-      </label>
-      {isShowCharacters && <Characters id={id} />}
     </div>
   );
 };

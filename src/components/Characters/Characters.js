@@ -1,8 +1,22 @@
-import React, { useState, useEffect } from "react";
-import "./Characters.css";
+import React, { useState, useEffect } from 'react';
+import { Tooltip } from 'react-tooltip';
+import './Characters.css';
+import { Link } from 'react-router-dom';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Characters = ({ id }) => {
   const [charactersList, setChactersList] = useState([]);
+  const [toolTipVisible, setToolTipVisible] = useState(false);
+
+  const handleMouseEnter = () => {
+    setToolTipVisible(true);
+    console.log('enter');
+  };
+
+  const handleMouseLeave = () => {
+    setToolTipVisible(false);
+    console.log('leave');
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,8 +33,24 @@ const Characters = ({ id }) => {
     <ul className="characters-list">
       {charactersList.map((character) => (
         <li key={character.person.id} className="character">
-          <img src={character.person.image.medium} alt="" />
-          <span>{character.person.name}</span>
+          <Link
+            id="clickable"
+            className="character-link"
+            // className="my-anchor-element"
+            onMouseOverCapture={handleMouseEnter}
+            onMouseOutCapture={handleMouseLeave}
+          >
+            {/* <img src={character.person.image.medium} alt="" /> */}
+            {character.person.name}
+          </Link>
+          {toolTipVisible && (
+            <Tooltip anchorSelect="#clickable" clickable place="top">
+              <img
+                src="{character.person.image.medium}"
+                alt={character.person.id}
+              />
+            </Tooltip>
+          )}
         </li>
       ))}
     </ul>
