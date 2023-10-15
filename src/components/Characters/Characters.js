@@ -37,19 +37,20 @@ const Characters = ({ id }) => {
         <li key={character.person.id} className="character">
           {console.log(character.person.id)}
           <Link
-            id="clickable"
+            id="non-clickable"
             className="character-link"
             onMouseEnter={() => handleMouseEnter(character.person.id)}
-            onMouseOutLeave={handleMouseLeave}
+            onMouseLeave={handleMouseLeave}
             data-tip={character.person.name}
           >
             {character.person.name}
           </Link>
           {toolTipVisible && characterId === character.person.id && (
-            <Tooltip anchorSelect="#clickable" clickable place="top">
+            <Tooltip anchorSelect="#non-clickable" clickable place="top">
               <img
-                src={character.person.image.medium}
-                alt={character.person.id}
+                className="tooltip-img"
+                src={character.person.image?.medium}
+                alt="actor"
               />
             </Tooltip>
           )}

@@ -14,7 +14,7 @@
   width: max-content;
   display: flex;
   flex-direction: column;
-  padding: 4px;
+  /* padding: 4px; */
 }
 
 .img {
@@ -32,6 +32,16 @@
   color: var(--citrine);
 }
 
-.character-name:hover {
+.character-link:hover,
+.my-anchor-element:hover {
   color: var(--white);
+}
+
+.character [role=tooltip] {
+  padding: 0;
+  background-color: var(--citrine);
+}
+
+.tooltip-img {
+  z-index: 10;
 }
