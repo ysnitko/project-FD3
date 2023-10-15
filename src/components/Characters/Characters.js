@@ -7,9 +7,11 @@ import 'react-tooltip/dist/react-tooltip.css';
 const Characters = ({ id }) => {
   const [charactersList, setChactersList] = useState([]);
   const [toolTipVisible, setToolTipVisible] = useState(false);
+  const [characterId, setCharacterId] = useState(null);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = (charId) => {
     setToolTipVisible(true);
+    setCharacterId(charId);
     console.log('enter');
   };
 
@@ -33,21 +35,20 @@ const Characters = ({ id }) => {
     <ul className="characters-list">
       {charactersList.map((character) => (
         <li key={character.person.id} className="character">
+          {console.log(character.person.id)}
           <Link
             id="clickable"
             className="character-link"
-            // className="my-anchor-element"
-            onMouseEnter={handleMouseEnter}
+            onMouseEnter={() => handleMouseEnter(character.person.id)}
             onMouseOutLeave={handleMouseLeave}
             data-tip={character.person.name}
           >
-            {/* <img src={character.person.image.medium} alt="" /> */}
             {character.person.name}
           </Link>
-          {toolTipVisible && (
+          {toolTipVisible && characterId === character.person.id && (
             <Tooltip anchorSelect="#clickable" clickable place="top">
               <img
-                src="{character.person.image.medium}"
+                src={character.person.image.medium}
                 alt={character.person.id}
               />
             </Tooltip>
