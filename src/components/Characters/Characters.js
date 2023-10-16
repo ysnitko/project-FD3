@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Tooltip } from 'react-tooltip';
-import './Characters.css';
-import { Link } from 'react-router-dom';
-import 'react-tooltip/dist/react-tooltip.css';
+import React, { useState, useEffect } from "react";
+import { Tooltip } from "react-tooltip";
+import "./Characters.css";
+import { Link } from "react-router-dom";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Characters = ({ id }) => {
   const [charactersList, setChactersList] = useState([]);
@@ -12,12 +12,12 @@ const Characters = ({ id }) => {
   const handleMouseEnter = (charId) => {
     setToolTipVisible(true);
     setCharacterId(charId);
-    console.log('enter');
+    console.log("enter");
   };
 
   const handleMouseLeave = () => {
     setToolTipVisible(false);
-    console.log('leave');
+    console.log("leave");
   };
 
   useEffect(() => {
@@ -35,13 +35,13 @@ const Characters = ({ id }) => {
     <ul className="characters-list">
       {charactersList.map((character) => (
         <li key={character.person.id} className="character">
-          {console.log(character.person.id)}
           <Link
             id="non-clickable"
             className="character-link"
             onMouseEnter={() => handleMouseEnter(character.person.id)}
             onMouseLeave={handleMouseLeave}
             data-tip={character.person.name}
+            to={`/character/${character.person.id}`}
           >
             {character.person.name}
           </Link>

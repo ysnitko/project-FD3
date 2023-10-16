@@ -7,6 +7,7 @@ import { Routes, Route } from 'react-router-dom';
 import Search from '../pages/Search/Search';
 import NotFound from '../pages/NotFound/NotFound';
 import Authorization from '../components/Auth/Authorization';
+// import Character from '../pages/'
 
 const PagesRouter = ({ navigateMovies, t }) => {
   return (
@@ -25,6 +26,7 @@ const PagesRouter = ({ navigateMovies, t }) => {
       <Route exact path="/search" element={<Search t={t} />} />
       <Route path="/movies/about/:id" element={<About t={t} />} />
       <Route path="/*" element={<NotFound t={t} />} />
+      {/* <Route path="/character/:id" element={<Character t={t} />} /> */}
       <Route path="/autorization" element={<Authorization t={t} />} />
     </Routes>
   );
