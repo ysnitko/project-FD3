@@ -1,0 +1,115 @@
+@import url(../../index.css);
+
+.character-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+}
+
+.character-information-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.character-information {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  flex-direction: column;
+}
+
+.person-info {
+  font-size: var(--fs-3);
+}
+
+.person-info-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.show-secondary-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: var(--fs-5);
+}
+
+.show-primary-info {
+  color: var(--white);
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
+}
+
+.show-cover {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.previouse-page {
+  display: flex;
+  width: 100px;
+  flex-direction: row;
+  gap: 5px;
+  font-size: var(--fs-6);
+  text-decoration: none;
+}
+
+.previouse-page:visited {
+  color: var(--citrine);
+}
+
+.character-information-container {
+  display: grid;
+  grid-template-columns: minmax(200px, 500px) minmax(200px, 1fr);
+}
+
+.movies-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.char-name {
+  margin-left: 10px;
+}
+
+@media screen and (min-width: 851px) and (max-width: 1100px) {
+  picture {
+    max-width: 100%;
+  }
+
+  .character-information-container {
+    grid-template-columns: 0.5fr 1fr;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 850px) {
+  .movie-container {
+    grid-template-columns: auto 1fr;
+  }
+
+  .show-primary-info {
+    font-size: var(--fs-1);
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 649px) {
+  .character-information-container {
+    grid-template-columns: none;
+    grid-template-rows: auto-fill 1fr;
+  }
+
+  .show-cover {
+    margin: 0 auto;
+  }
+
+  .show-primary-info {
+    font-size: var(--fs-1);
+  }
+}

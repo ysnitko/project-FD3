@@ -44,7 +44,7 @@ const MoviesList = ({ navigateMovies, t }) => {
           <LoadinSpinner />
         ) : (
           <div>
-            <ul className="movies-list">
+            <div className="movies-list">
               {renderList.map((movie) => (
                 <Link
                   className="movie-link"
@@ -61,7 +61,7 @@ const MoviesList = ({ navigateMovies, t }) => {
                   />
                 </Link>
               ))}
-            </ul>
+            </div>
             <Pagination
               navigateMovies={navigateMovies}
               isFiltered={isFiltered}

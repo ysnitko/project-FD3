@@ -32,9 +32,9 @@ const Characters = ({ id }) => {
   }, [id]);
 
   return (
-    <ul className="characters-list">
+    <div className="characters-list">
       {charactersList.map((character) => (
-        <li key={character.person.id} className="character">
+        <div key={character.person.id} className="character">
           <Link
             id="non-clickable"
             className="character-link"
@@ -54,9 +54,9 @@ const Characters = ({ id }) => {
               />
             </Tooltip>
           )}
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
 };
 

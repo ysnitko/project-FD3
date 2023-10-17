@@ -6,7 +6,7 @@
   gap: 20px;
   grid-row-gap: 40px;
   padding-inline: 0 20px;
-  list-style-type: none;
+  /* list-style-type: none; */
 }
 
 .favorites-container {
