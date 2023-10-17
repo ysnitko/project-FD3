@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Tooltip } from "react-tooltip";
-import "./Characters.css";
-import { Link } from "react-router-dom";
-import "react-tooltip/dist/react-tooltip.css";
+import React, { useState, useEffect } from 'react';
+import { Tooltip } from 'react-tooltip';
+import './Characters.css';
+import { Link } from 'react-router-dom';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Characters = ({ id }) => {
   const [charactersList, setChactersList] = useState([]);
@@ -12,12 +12,12 @@ const Characters = ({ id }) => {
   const handleMouseEnter = (charId) => {
     setToolTipVisible(true);
     setCharacterId(charId);
-    console.log("enter");
+    console.log('enter');
   };
 
   const handleMouseLeave = () => {
     setToolTipVisible(false);
-    console.log("leave");
+    console.log('leave');
   };
 
   useEffect(() => {

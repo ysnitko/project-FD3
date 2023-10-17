@@ -121,7 +121,7 @@ const Character = ({ t }) => {
                 {!isShowMoviesWith ? (
                   <div className="toggle-container">
                     <span className="toggle-actors">
-                      Movies with
+                      {t('Movies with')}
                       <span className="char-name active">{charInfo.name}</span>
                     </span>
                     <img src={arr_down} alt="arrow-down" />
@@ -129,7 +129,7 @@ const Character = ({ t }) => {
                 ) : (
                   <div className="toggle-container">
                     <span className="toggle-actors">
-                      Movies with
+                      {t('Movies with')}
                       <span className="char-name active">{charInfo.name}</span>
                     </span>
                     <img src={arr_up} alt="arrow-up" />
