@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { showLoader } from "../../redux/actions/loaderAC";
-import LoadinSpinner from "../../components/LoadingSpinner/LoadinSpinner";
-import Arrow from "../../helpers/img/Arrow.svg";
-import arr_down from "../../helpers/img/arr-down.svg";
-import arr_up from "../../helpers/img/arr-up.svg";
-import "./Character.css";
+import React, { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { showLoader } from '../../redux/actions/loaderAC';
+import LoadinSpinner from '../../components/LoadingSpinner/LoadinSpinner';
+import Arrow from '../../helpers/img/Arrow.svg';
+import arr_down from '../../helpers/img/arr-down.svg';
+import arr_up from '../../helpers/img/arr-up.svg';
+import './Character.css';
 
 const Character = ({ t }) => {
   const isShowLoader = useSelector(
@@ -48,30 +48,32 @@ const Character = ({ t }) => {
     setIsShowMoviesWith(event.target.checked);
   };
 
-  // const calculateAge = (dateChar) => {
-  //   const [year, month, day] = dateChar.split("-");
-  //   const currentDate = new Date();
-  //   const birthDate = new Date(year, month - 1, day);
+  const calculateAge = (dateChar) => {
+    if (!dateChar) {
+      return 'no information';
+    }
 
-  //   let age = currentDate.getFullYear() - birthDate.getFullYear();
+    const [year, month, day] = dateChar.split('-');
+    const currentDate = new Date();
+    const birthDate = new Date(year, month - 1, day);
 
-  //   if (
-  //     currentDate.getMonth() < birthDate.getMonth() ||
-  //     (currentDate.getMonth() === birthDate.getMonth() &&
-  //       currentDate.getDate() < birthDate.getDate())
-  //   ) {
-  //     age--;
-  //   }
-  //   if (dateChar === null) {
-  //     age = "no information";
-  //   }
-  //   return age;
-  // };
-  // console.log(calculateAge(charInfo.birthday));
+    let age = currentDate.getFullYear() - birthDate.getFullYear();
+
+    if (
+      currentDate.getMonth() < birthDate.getMonth() ||
+      (currentDate.getMonth() === birthDate.getMonth() &&
+        currentDate.getDate() < birthDate.getDate())
+    ) {
+      age--;
+    }
+
+    return age;
+  };
+
   return (
     <div className="character-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span> {t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span> {t('Back')}</span>
       </Link>
       {isShowLoader ? (
         <LoadinSpinner />
@@ -90,21 +92,21 @@ const Character = ({ t }) => {
           </picture>
           <div className="character-information">
             <div className="person-info-header">
-              <span className="person-info active">{t("PERSON INFO")}</span>
+              <span className="person-info active">{t('PERSON INFO')}</span>
               <span className="show-primary-info"> {charInfo.name},</span>
             </div>
             <div className="show-secondary-info">
               <span>
-                {t("Gender")}: {charInfo.gender}
+                {t('Gender')}: {charInfo.gender}
               </span>
               <span>
-                {t("Age")}:{/* {calculateAge(charInfo.birthday)} */}
+                {t('Age')}: {calculateAge(charInfo.birthday)}
               </span>
               <span>
-                {t("Birthday")}: {charInfo.birthday}
+                {t('Birthday')}: {charInfo.birthday}
               </span>
               <span>
-                {t("Born in")}: {charInfo.country?.name}
+                {t('Born in')}: {charInfo.country?.name}
               </span>
               {}
             </div>
