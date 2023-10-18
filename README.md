@@ -31,6 +31,7 @@
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/Screenshot%202023-09-08%20at%2001.11.25.png)
 
 При наведении курсора мыши на ссылку с актером реализована всплывающая подсказка с отображением его фотографии (реализовано при помощи инструмента ReactTooltip v5).
+
 ![ScreenShot](https://raw.github.com/ysnitko/project-FD3/main/src/helpers/img/tooltip-screen.png)
 
 ### 2. Производительность отрисовки.
