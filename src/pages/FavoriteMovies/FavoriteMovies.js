@@ -12,7 +12,7 @@ const FavoriteMovies = ({ t }) => {
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>{t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span>{t("To movies list")}</span>
       </Link>
       {favoriteMovies.length > 0 ? (
         <span className="favorites-movies">

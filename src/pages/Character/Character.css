@@ -52,7 +52,7 @@
 
 .previouse-page {
   display: flex;
-  width: 100px;
+  width: 200px;
   flex-direction: row;
   gap: 5px;
   font-size: var(--fs-6);
@@ -65,7 +65,7 @@
 
 .character-information-container {
   display: grid;
-  grid-template-columns: minmax(200px, 500px) minmax(200px, 1fr);
+  grid-template-columns: 0.5fr 1fr;
 }
 
 .movies-links-row {
@@ -92,6 +92,10 @@
 @media screen and (min-width: 650px) and (max-width: 850px) {
   .movie-container {
     grid-template-columns: auto 1fr;
+  }
+
+  .character-information-container {
+    grid-template-columns: 0.5fr 1fr;
   }
 
   .show-primary-info {

@@ -111,7 +111,7 @@
 
 .previouse-page {
   display: flex;
-  width: 100px;
+  min-width: 200px;
   flex-direction: row;
   gap: 5px;
   font-size: var(--fs-6);
@@ -209,5 +209,10 @@
 
   .share {
     display: none;
+  }
+
+  .add-favorites-btn,
+  .add-favorites-none {
+    font-size: var(--fs-11);
   }
 }

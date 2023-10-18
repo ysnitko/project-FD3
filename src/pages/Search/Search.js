@@ -12,7 +12,7 @@ const Search = ({ t }) => {
   return (
     <div className="favorites-container">
       <Link className="previouse-page" to={`/movies/All/1`}>
-        <img src={Arrow} alt="arrow-left" /> <span>{t("Back")}</span>
+        <img src={Arrow} alt="arrow-left" /> <span>{t("To movies list")}</span>
       </Link>
       {searchMovies.length > 0 ? (
         <span className="search-movies"> {t("Searching results")}</span>
