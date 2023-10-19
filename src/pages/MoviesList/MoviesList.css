@@ -81,12 +81,12 @@
 
   .category-select > span,
   .sort-select > span {
-    font-size: var(--fs-12);
+    font-size: var(--fs-14);
   }
 
   .category-select select,
   .sort-select select {
-    font-size: var(--fs-12);
+    font-size: var(--fs-14);
     padding-left: 0px;
   }
 

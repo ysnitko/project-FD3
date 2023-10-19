@@ -16,7 +16,7 @@
 
 .form-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -54,7 +54,7 @@ span {
 }
 
 .submit {
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   padding: 4px 10px;
   color: var(--white);

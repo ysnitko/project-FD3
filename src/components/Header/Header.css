@@ -75,6 +75,10 @@ form .search {
     font-size: var(--fs-11);
   }
 
+  .langusges-select {
+    gap: 0px;
+  }
+
   .langusges-select select {
     font-size: var(--fs-11);
     gap: 2px;

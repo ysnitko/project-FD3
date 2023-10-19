@@ -116,4 +116,8 @@
   .show-primary-info {
     font-size: var(--fs-1);
   }
+
+  .show-secondary-info {
+    font-size: var(--fs-6);
+  }
 }

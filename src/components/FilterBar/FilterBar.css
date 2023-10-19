@@ -30,7 +30,7 @@
 
 .category-select > span,
 .sort-select > span {
-  font-size: var(--fs-9);
+  font-size: var(--fs-14);
   color: var(--white);
 }
 
@@ -38,7 +38,7 @@
 .sort-select select {
   padding-left: 10px;
   background-color: transparent;
-  font-size: var(--fs-9);
+  font-size: var(--fs-14);
   color: var(--citrine);
 }
 

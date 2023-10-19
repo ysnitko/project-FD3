@@ -213,6 +213,7 @@
 
   .add-favorites-btn,
   .add-favorites-none {
+    /* padding: 0 8px; */
     font-size: var(--fs-11);
   }
 }
