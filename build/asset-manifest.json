@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.51e9ebbc.css",
+    "main.css": "/static/css/main.fe501216.css",
     "main.js": "/static/js/main.d081a6e9.js",
     "static/media/the-mandalorian2.jpg": "/static/media/the-mandalorian2.060daa374c69150f7abd.jpg",
     "static/media/logo.svg": "/static/media/logo.1fd5b78eea5e7dec545e810b617bdf18.svg",
@@ -17,11 +17,11 @@
     "static/media/rating.svg": "/static/media/rating.8d0cb9890a0a332bb5c93b1efb86aa3b.svg",
     "static/media/arr-up.svg": "/static/media/arr-up.2d405fd2f49d3966000770c29ae95b8e.svg",
     "static/media/arr-down.svg": "/static/media/arr-down.fcf24afda1d71cd0421ceda0d1fc7d02.svg",
-    "main.51e9ebbc.css.map": "/static/css/main.51e9ebbc.css.map",
+    "main.fe501216.css.map": "/static/css/main.fe501216.css.map",
     "main.d081a6e9.js.map": "/static/js/main.d081a6e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.51e9ebbc.css",
+    "static/css/main.fe501216.css",
     "static/js/main.d081a6e9.js"
   ]
 }
