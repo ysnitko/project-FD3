@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { setSearchList } from "../../redux/actions/movieListAC";
-import "./Header.css";
-import logoSvg from "../../helpers/img/logo.svg";
-import langSvg from "../../helpers/img/lang.svg";
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setSearchList } from '../../redux/actions/movieListAC';
+import './Header.css';
+import logoSvg from '../../helpers/img/logo.svg';
+import langSvg from '../../helpers/img/lang.svg';
 
 const Header = ({
   navigateMovies,
@@ -22,7 +22,7 @@ const Header = ({
   const searchMovies = (event) => {
     event.preventDefault();
     let searchRefValue = searchRef.current.value;
-    if (searchRef.current && searchRefValue !== "") {
+    if (searchRef.current && searchRefValue !== '') {
       const filtered = movieList.filter((item) =>
         item.name.toLowerCase().includes(searchRefValue.toLowerCase())
       );
@@ -31,7 +31,7 @@ const Header = ({
     } else {
       navigateMovies();
     }
-    searchRefValue = "";
+    searchRefValue = '';
   };
 
   return (
@@ -55,12 +55,12 @@ const Header = ({
         <div className="langusges-select">
           <img src={langSvg} alt="languages" />
           <select onChange={changeLanguage}>
-            <option value="en">{t("En")}</option>
-            <option value="ru">{t("Ru")}</option>
+            <option value="en">{t('En')}</option>
+            <option value="ru">{t('Ru')}</option>
           </select>
         </div>
         <button className="sign-btn" type="button" onClick={navigateAuth}>
-          {t("SIGN IN")}
+          {t('LOGIN')}
         </button>
       </div>
     </div>
